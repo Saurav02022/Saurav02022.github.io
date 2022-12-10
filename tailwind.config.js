@@ -4,9 +4,7 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      signature: "Great Vibes",
-      Big: "Playfair Display",
-      Small: "Crimson Pro",
+      signature: ["Monoton"],
     },
   },
   plugins: [],
