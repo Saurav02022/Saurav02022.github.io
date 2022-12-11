@@ -3,7 +3,7 @@ import React from "react";
 const Contact = () => {
   return (
     <div name="Contact" className="w-full p-4">
-      <div className="flex flex-col p-4 justify-center max-w-screen-lg mx-auto">
+      <div className="flex flex-col p-4 justify-center max-w-screen-lg mx-auto mb-52">
         <div className="pb-8">
           <p className="text-4xl font-bold inline border-b-4 border-[#75bcd6] ml-5">
             Contact
@@ -27,6 +27,12 @@ const Contact = () => {
               name="email"
               placeholder="Enter Your E-mail Please"
               className="p-2 bg-transparent  rounded-md focus:outline-none my-4 border-2 border-[#75bcd6]"
+            />
+            <input
+              type="number"
+              name="number"
+              placeholder="Enter Your PhoneNumber Please"
+              className="p-2 bg-transparent  rounded-md focus:outline-none my-3 border-2 border-[#75bcd6]"
             />
             <textarea
               name="massage"

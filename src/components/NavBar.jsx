@@ -29,9 +29,9 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="flex justify-between items-center w-full  h-20 text-black bg-[#75bcd6] fixed z-50">
+    <div className="flex justify-between items-center w-full  h-20 text-black bg-[#75bcd6] fixed z- px-2">
       <div>
-        <h1 className="text-3xl sm:ml-2 sm:text-4xl cursor-pointer">
+        <h1 className="text-3xl sm:ml-2 cursor-pointer">
           Saurav Kumar
         </h1>
       </div>
@@ -51,6 +51,7 @@ const Navbar = () => {
           <a
             href="https://drive.google.com/file/d/1EXTQAFDi1i8VXpzl9tlAEFsJPzo2V23r/view?usp=sharing"
             download={true}
+            target="_blank"
           >
             Resume
           </a>
@@ -65,7 +66,7 @@ const Navbar = () => {
       </div>
 
       {nav && (
-        <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-slate-400 text-black">
+        <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-[#75bcd6] text-black">
           {Links.map(({ id, link }) => (
             <li
               key={id}
@@ -82,7 +83,7 @@ const Navbar = () => {
             </li>
           ))}
           <li className="px-4 cursor-pointer capitalize py-6 text-4xl hover:scale-105 duration-200">
-            <a href="/Avinash-Patel-Resume.pdf">Resume</a>
+            <a href="https://drive.google.com/file/d/1EXTQAFDi1i8VXpzl9tlAEFsJPzo2V23r/view?usp=sharing" target={"_blank"}>Resume</a>
           </li>
         </ul>
       )}

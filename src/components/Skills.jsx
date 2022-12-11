@@ -5,7 +5,6 @@ import css from "../assets/css.png";
 import javascript from "../assets/javascript.png";
 import reactImage from "../assets/react.png";
 import nextjs from "../assets/nextjs.png";
-import graphql from "../assets/graphql.png";
 import github from "../assets/github.png";
 import tailwind from "../assets/tailwind.png";
 import Redux from "../assets/redux.png";
@@ -16,6 +15,8 @@ import git from "../assets/git.png";
 import vscode from "../assets/vscode.png";
 import vercel from "../assets/veercel.ico";
 import netlify from "../assets/netlify.png";
+import Bootstrap from "../assets/bootstarp.png";
+import Notion from "../assets/Notion.png";
 const Skills = () => {
   const techs = [
     {
@@ -39,74 +40,86 @@ const Skills = () => {
     {
       id: 4,
       src: reactImage,
-      title: "React",
+      title: "React Js",
       style: "shadow-cyan-200 border-cyan-200",
     },
     {
       id: 5,
-      src: tailwind,
-      title: "Tailwind",
-      style: "shadow-cyan-500 border-cyan-500",
-    },
-    {
-      id: 6,
-      src: nextjs,
-      title: "Next JS",
-      style: "shadow-black border-black",
-    },
-    {
-      id: 8,
-      src: github,
-      title: "GitHub",
-      style: "shadow-black border-black",
-    },
-    {
-      id: 9,
       src: Redux,
       title: "Redux",
       style: "shadow-violet-500 border-violet-500",
     },
     {
-      id: 10,
+      id: 6,
+      src: nextjs,
+      title: "Next Js",
+      style: "shadow-black border-black",
+    },
+    {
+      id: 7,
       src: NodeJs,
       title: "Node Js",
       style: "shadow-green-600 border-green-600",
     },
     {
-      id: 11,
+      id: 8,
       src: MongoDb,
       title: "MongoDb",
-      style: "shadow-yellow-500 border-yellow-700",
+      style: "shadow-yellow-800 border-yellow-800",
+    },
+    {
+      id: 9,
+      src: Bootstrap,
+      title: "Bootstrap",
+      style: "shadow-violet-600 border-violet-600",
+    },
+    {
+      id: 10,
+      src: tailwind,
+      title: "Tailwind",
+      style: "shadow-cyan-500 border-cyan-500",
+    },
+    {
+      id: 11,
+      src: ChakraUi,
+      title: "Chakra Ui",
+      style: "shadow-blue-400 border-blue-400",
     },
     {
       id: 12,
-      src: ChakraUi,
-      title: "Chakra Ui",
+      src: Notion,
+      title: "Notion",
       style: "shadow-black border-black",
     },
     {
       id: 13,
+      src: github,
+      title: "GitHub",
+      style: "shadow-black border-black",
+    },
+    {
+      id: 14,
       src: git,
       title: "git",
       style: "shadow-teal-800",
     },
     {
-      id: 14,
+      id: 15,
       src: vscode,
       title: "Vs Code",
       style: "shadow-blue-400 border-blue-400",
     },
     {
-      id: 15,
+      id: 16,
       src: netlify,
       title: "Netlify",
       style: "shadow-teal-500 border-teal-500",
     },
     {
-      id: 16,
+      id: 17,
       src: vercel,
       title: "Vercel",
-      style: "shadow-blue-400 border-blue-400",
+      style: "shadow-black border-black",
     },
   ];
 
@@ -114,11 +127,11 @@ const Skills = () => {
     <div name="Skills" className="w-full mt-0 md:mt-5">
       <div className="max-w-screen-lg  mx-auto flex flex-col justify-content w-full">
         <div className="pb-5">
-          <p className="text-4xl font-bold inline border-b-4 border-[#75bcd6] ml-5 ">Skills</p>
+          <p className="text-4xl font-bold inline border-b-4 border-[#75bcd6] ml-5 ">
+            Skills
+          </p>
         </div>
-        <div
-          className="w-full grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-8 text-center py-8 px-12 sm:px-0"
-        >
+        <div className="w-full grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-8 text-center py-8 px-12 sm:px-0">
           {techs.map(({ id, src, title, style }) => (
             <div
               key={id}
