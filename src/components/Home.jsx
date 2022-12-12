@@ -1,5 +1,6 @@
 import React from "react";
-
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import { Link } from "react-scroll";
 const Home = () => {
   return (
     <div name="Home" className="sm:h-screen w-full pt-24">
@@ -14,6 +15,19 @@ const Home = () => {
             explore new technologies and leverage them to solve real-life
             problems.
           </p>
+          <div>
+            <Link
+              to="Project"
+              smooth
+              duration={500}
+              className="group text-white  w-fit px-6 py-3 my-2 flex items-center rounded-md bg-gradient-to-r from-purple-500 to-cyan-500 cursor-pointer"
+            >
+              Portfolio
+              <span className="group-hover:rotate-90 duration-300">
+                <MdOutlineKeyboardArrowRight size={25} className="ml-1" />
+              </span>
+            </Link>
+          </div>
         </div>
 
         <div className="mb-10 sm:mb-0 w-3/6">

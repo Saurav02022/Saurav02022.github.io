@@ -9,7 +9,7 @@ import GitHubCalendarComponent from "./components/GithubCalender";
 
 function App() {
   return (
-    <div>
+    <div style={{backgroundColor:"#CDF0EA"}}>
       <NavBar />
       <Home />
       <About />

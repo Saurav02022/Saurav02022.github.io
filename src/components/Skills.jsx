@@ -135,7 +135,7 @@ const Skills = () => {
           {techs.map(({ id, src, title, style }) => (
             <div
               key={id}
-              className={`shadow-md hover:scale-105 duration-500 bg-violet-100 border-2 border-orange-500 rounded-lg ${style}`}
+              className={`shadow-md hover:scale-105 duration-500 bg-[#75bcd6] text-white border-2 border-orange-500 rounded-lg ${style}`}
             >
               <img src={src} alt="" className="w-20 mx-auto mt-1 " />
               <p className="mt-3 font-semibold">{title}</p>

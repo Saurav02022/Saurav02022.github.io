@@ -65,7 +65,7 @@ const Project = () => {
             ({ id, src, github, netlify, websiteName, des, TechStack }) => (
               <div
                 key={id}
-                className="shadow-md shadow-[#75bcd6] rounded-lg font-Big text-xl px-5"
+                className="shadow-md shadow-[#75bcd6] rounded-lg font-Big text-xl px-5 bg-[#75bcd6] text-white"
               >
                 <img
                   src={src}

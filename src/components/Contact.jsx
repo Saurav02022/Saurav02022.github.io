@@ -40,7 +40,7 @@ const Contact = () => {
               rows="10"
               className="p-2 bg-transparent rounded-md focus:outline-none border-2 border-[#75bcd6]"
             ></textarea>
-            <button className="bg-gradient-to-b bg-[#75bcd6] px-6 py-3 my-8 mx-auto flex items-center rounded-md hover:scale-110 duration-300">
+            <button className="bg-gradient-to-r from-purple-500 to-cyan-500 cursor-pointer  px-6 py-3 my-8 mx-auto flex items-center rounded-md hover:scale-110 duration-300">
               Let's talk
             </button>
           </form>

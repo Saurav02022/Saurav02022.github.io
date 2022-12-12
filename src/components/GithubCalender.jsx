@@ -21,7 +21,7 @@ const GitHubCalendarComponent = () => {
   };
   return (
     <div className="flex flex-col justify-center  justify-items-stretch h-full w-full mx-auto mt-5 ">
-      <p className="text-center text-4xl pb-2 underline  ">Github Statics</p>
+      <p className="text-center text-4xl pb-2 underline font-bold ">GitHub Statistics</p>
       <div>
         <GitHubCalendar
           style={{ margin: "auto" }}
