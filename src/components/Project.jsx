@@ -10,7 +10,8 @@ import javascript from "../assets/javascript.png";
 import reactImage from "../assets/react.png";
 import Bootsrap from "../assets/bootstarp.png";
 import Redux from "../assets/redux.png";
-
+import Chakra from '../assets/chakraui.png'
+import myntra from '../assets/portfolio/myntra.jpg'
 const Project = () => {
   const portfolios = [
     {
@@ -42,12 +43,12 @@ const Project = () => {
     },
     {
       id: 4,
-      src: bigbasket,
-      github: "https://github.com/Saurav02022/major-flock-5344",
-      netlify: "https://bigbasket-apnidukan.netlify.app",
-      websiteName: "bigbasket Clone",
-      des: "It is an E-commerce website for online supermarket of all your daily needs.",
-      TechStack: [html, css, javascript, reactImage, Redux],
+      src: myntra,
+      github: "https://github.com/harshau9/eager-grain-3783",
+      netlify: "https://myntra-gilt.vercel.app",
+      websiteName: "Myntra Clone",
+      des: "Myntra is an e-commerce website that sells cosmetics and personal care products.",
+      TechStack: [html, css, javascript, reactImage, Redux,Chakra],
     },
   ];
 
