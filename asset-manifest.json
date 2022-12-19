@@ -1,10 +1,11 @@
 {
   "files": {
     "main.css": "/static/css/main.cefa2861.css",
-    "main.js": "/static/js/main.ef85ac0c.js",
+    "main.js": "/static/js/main.d430d114.js",
     "static/media/installNode.png": "/static/media/installNode.304995265da1db08f1fa.png",
     "static/media/navbar.png": "/static/media/navbar.e6e671860f7c60be0138.png",
     "static/media/reactWeather.jpg": "/static/media/reactWeather.87a9f446a277ea2cfffd.jpg",
+    "static/media/myntra.jpg": "/static/media/myntra.01d8bb1cecee125cf76b.jpg",
     "static/media/bootstarp.png": "/static/media/bootstarp.32c248432e2b86298964.png",
     "static/media/netlify.png": "/static/media/netlify.ff9a6cf8b6be147ca675.png",
     "static/media/react.png": "/static/media/react.0cf951a69d8e58f83f9d.png",
@@ -21,10 +22,10 @@
     "static/media/javascript.png": "/static/media/javascript.1ccd6ef9bb1f9c84ef00.png",
     "index.html": "/index.html",
     "main.cefa2861.css.map": "/static/css/main.cefa2861.css.map",
-    "main.ef85ac0c.js.map": "/static/js/main.ef85ac0c.js.map"
+    "main.d430d114.js.map": "/static/js/main.d430d114.js.map"
   },
   "entrypoints": [
     "static/css/main.cefa2861.css",
-    "static/js/main.ef85ac0c.js"
+    "static/js/main.d430d114.js"
   ]
 }
