@@ -26,7 +26,6 @@ const GitHubCalendarComponent = () => {
         <GitHubCalendar
           style={{ margin: "auto" }}
           username="Saurav02022"
-          transformData={selectLastHalfYear}
           blockSize={15}
           fontSize={15}
         >
