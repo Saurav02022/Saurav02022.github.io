@@ -19,24 +19,24 @@ const Contact = () => {
             <input
               type="text"
               name="name"
-              placeholder="Enter Your Name Please"
+              placeholder="Enter Your Name"
               className="p-2 bg-transparent  rounded-md focus:outline-none border-2 border-[#75bcd6]"
             />
             <input
               type="text"
               name="email"
-              placeholder="Enter Your E-mail Please"
+              placeholder="Enter Your Email"
               className="p-2 bg-transparent  rounded-md focus:outline-none my-4 border-2 border-[#75bcd6]"
             />
             <input
               type="number"
               name="number"
-              placeholder="Enter Your PhoneNumber Please"
+              placeholder="Enter Your PhoneNumber"
               className="p-2 bg-transparent  rounded-md focus:outline-none my-3 border-2 border-[#75bcd6]"
             />
             <textarea
               name="massage"
-              placeholder="Enter Your Massage"
+              placeholder="Enter Your Message"
               rows="10"
               className="p-2 bg-transparent rounded-md focus:outline-none border-2 border-[#75bcd6]"
             ></textarea>
