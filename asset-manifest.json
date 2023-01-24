@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.cefa2861.css",
-    "main.js": "/static/js/main.7ad0dfd2.js",
+    "main.css": "/static/css/main.fe3ec0a9.css",
+    "main.js": "/static/js/main.7b1eee21.js",
     "static/media/installNode.png": "/static/media/installNode.304995265da1db08f1fa.png",
     "static/media/navbar.png": "/static/media/navbar.e6e671860f7c60be0138.png",
     "static/media/reactWeather.jpg": "/static/media/reactWeather.87a9f446a277ea2cfffd.jpg",
@@ -21,11 +21,11 @@
     "static/media/chakraui.png": "/static/media/chakraui.36db97903e01c1040ed5.png",
     "static/media/javascript.png": "/static/media/javascript.1ccd6ef9bb1f9c84ef00.png",
     "index.html": "/index.html",
-    "main.cefa2861.css.map": "/static/css/main.cefa2861.css.map",
-    "main.7ad0dfd2.js.map": "/static/js/main.7ad0dfd2.js.map"
+    "main.fe3ec0a9.css.map": "/static/css/main.fe3ec0a9.css.map",
+    "main.7b1eee21.js.map": "/static/js/main.7b1eee21.js.map"
   },
   "entrypoints": [
-    "static/css/main.cefa2861.css",
-    "static/js/main.7ad0dfd2.js"
+    "static/css/main.fe3ec0a9.css",
+    "static/js/main.7b1eee21.js"
   ]
 }
