@@ -1,6 +1,11 @@
 import React from "react";
-import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import { Link } from "react-scroll";
+
+const downloadResume = async () => {
+  window.open(
+    "https://drive.google.com/file/d/1EXTQAFDi1i8VXpzl9tlAEFsJPzo2V23r/view"
+  );
+};
+
 const Home = () => {
   return (
     <div name="Home" className="sm:h-screen w-full pt-24">
@@ -15,26 +20,22 @@ const Home = () => {
             explore new technologies and leverage them to solve real-life
             problems.
           </p>
-          <div>
-            <Link
-              to="Project"
-              smooth
-              duration={500}
-              className="group text-white  w-fit px-6 py-3 my-2 flex items-center rounded-md bg-gradient-to-r from-purple-500 to-cyan-500 cursor-pointer"
+          <button className="group text-white  w-fit px-6 py-3 my-2 flex items-center rounded-md bg-gradient-to-r from-pink-500 to-cyan-500 cursor-pointer">
+            <a
+              href="/Saurav-Kumar-Resume.pdf"
+              download={true}
+              target={"_blank"}
+              rel="noreferrer"
+              onClick={downloadResume}
             >
-              Portfolio
-              <span className="group-hover:rotate-90 duration-300">
-                <MdOutlineKeyboardArrowRight size={25} className="ml-1" />
-              </span>
-            </Link>
-          </div>
+              Resume
+            </a>
+          </button>
         </div>
 
         <div className="mb-10 sm:mb-0 w-3/6">
           <img
-            src={
-              "https://media-exp1.licdn.com/dms/image/D4D03AQGpp6MY_-YX6Q/profile-displayphoto-shrink_400_400/0/1670064318301?e=1675900800&v=beta&t=rSeR8kme-sTyUp-c6K-jePqDV4h5qg7iv0YNlEog1o0"
-            }
+            src={"/profife_pic.png"}
             alt="my-profile"
             className="rounded-2xl mx-auto "
           />

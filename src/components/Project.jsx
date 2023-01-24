@@ -2,7 +2,7 @@ import React from "react";
 import kfc from "../assets/portfolio/installNode.png";
 import myglamm from "../assets/portfolio/navbar.png";
 import bigbasket from "../assets/portfolio/reactWeather.jpg";
-import { FaGithub, FaReact, FaBootstrap } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import { SiNetlify } from "react-icons/si";
 import html from "../assets/html.png";
 import css from "../assets/css.png";
@@ -78,6 +78,7 @@ const Project = () => {
                 <div className="flex gap-4 items-center justify-center mt-4 ">
                   {TechStack.map((data, i) => (
                     <img
+                      key={i}
                       src={data}
                       alt={id}
                       width="12%"
@@ -90,7 +91,7 @@ const Project = () => {
                     <a
                       className="w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105"
                       href={github}
-                      target="_blank"
+                      target="_blank" rel="noreferrer"
                     >
                       <FaGithub size={40} />
                     </a>
@@ -99,7 +100,7 @@ const Project = () => {
                     <a
                       className="w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105"
                       href={netlify}
-                      target="_blank"
+                      target="_blank" rel="noreferrer"
                     >
                       <SiNetlify size={40} />
                     </a>

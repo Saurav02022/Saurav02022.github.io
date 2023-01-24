@@ -27,13 +27,16 @@ const Navbar = () => {
       link: "Contact",
     },
   ];
+  const downloadResume = async () => {
+    window.open(
+      "https://drive.google.com/file/d/1EXTQAFDi1i8VXpzl9tlAEFsJPzo2V23r/view"
+    );
+  };
 
   return (
     <div className="flex justify-between items-center w-full  h-20 text-black bg-[#75bcd6] fixed z- px-2">
       <div>
-        <h1 className="text-3xl sm:ml-2 cursor-pointer">
-          Saurav Kumar
-        </h1>
+        <h1 className="text-3xl sm:ml-2 cursor-pointer">Saurav Kumar</h1>
       </div>
 
       <ul className="hidden md:flex">
@@ -49,9 +52,11 @@ const Navbar = () => {
         ))}
         <li className="px-4 cursor-pointer capitalize font-medium text-black hover:scale-105 duration-200">
           <a
-            href="https://drive.google.com/file/d/1EXTQAFDi1i8VXpzl9tlAEFsJPzo2V23r/view?usp=sharing"
+            href="/Saurav-Kumar-Resume.pdf"
             download={true}
-            target="_blank"
+            target={"_blank"}
+            rel="noreferrer"
+            onClick={downloadResume}
           >
             Resume
           </a>
@@ -83,7 +88,15 @@ const Navbar = () => {
             </li>
           ))}
           <li className="px-4 cursor-pointer capitalize py-6 text-4xl hover:scale-105 duration-200">
-            <a href="https://drive.google.com/file/d/1EXTQAFDi1i8VXpzl9tlAEFsJPzo2V23r/view?usp=sharing" target={"_blank"}>Resume</a>
+            <a
+              href="/Saurav-Kumar-Resume.pdf"
+              download={true}
+              target={"_blank"}
+              rel="noreferrer"
+              onClick={downloadResume}
+            >
+              Resume
+            </a>
           </li>
         </ul>
       )}

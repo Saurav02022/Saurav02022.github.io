@@ -3,7 +3,7 @@ import React from "react";
 const Contact = () => {
   return (
     <div name="Contact" className="w-full p-4">
-      <div className="flex flex-col p-4 justify-center max-w-screen-lg mx-auto mb-52">
+      <div className="flex flex-col p-4 justify-center max-w-screen-lg mx-auto ">
         <div className="pb-8">
           <p className="text-4xl font-bold inline border-b-4 border-[#75bcd6] ml-5">
             Contact
@@ -40,7 +40,7 @@ const Contact = () => {
               rows="10"
               className="p-2 bg-transparent rounded-md focus:outline-none border-2 border-[#75bcd6]"
             ></textarea>
-            <button className="bg-gradient-to-r from-purple-500 to-cyan-500 cursor-pointer  px-6 py-3 my-8 mx-auto flex items-center rounded-md hover:scale-110 duration-300">
+            <button className="bg-gradient-to-r from-pink-500 to-cyan-500 cursor-pointer  px-6 py-3 my-8 mx-auto flex items-center rounded-md hover:scale-110 duration-300">
               Let's talk
             </button>
           </form>

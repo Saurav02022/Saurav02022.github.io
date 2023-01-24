@@ -6,18 +6,20 @@ import NavBar from "./components/NavBar";
 import Project from "./components/Project";
 import SocialLinks from "./components/SocialLinks";
 import GitHubCalendarComponent from "./components/GithubCalender";
+import Info from "./components/Info";
 
 function App() {
   return (
-    <div style={{backgroundColor:"#CDF0EA"}}>
+    <div style={{ backgroundColor: "#CDF0EA" }}>
       <NavBar />
       <Home />
       <About />
       <Skills />
       <Project />
-      <GitHubCalendarComponent/>
+      <GitHubCalendarComponent />
       <Contact />
-      <SocialLinks />
+      <Info />
+     <SocialLinks/>
     </div>
   );
 }
