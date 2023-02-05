@@ -1,14 +1,15 @@
 {
   "files": {
     "main.css": "/static/css/main.2f12bfde.css",
-    "main.js": "/static/js/main.65c63338.js",
-    "static/media/installNode.png": "/static/media/installNode.304995265da1db08f1fa.png",
+    "main.js": "/static/js/main.dbbd34ce.js",
+    "static/media/nykaa.png": "/static/media/nykaa.061ddfaeb880eacb9286.png",
     "static/media/navbar.png": "/static/media/navbar.e6e671860f7c60be0138.png",
     "static/media/reactWeather.jpg": "/static/media/reactWeather.87a9f446a277ea2cfffd.jpg",
     "static/media/myntra.jpg": "/static/media/myntra.01d8bb1cecee125cf76b.jpg",
     "static/media/bootstarp.png": "/static/media/bootstarp.32c248432e2b86298964.png",
     "static/media/netlify.png": "/static/media/netlify.ff9a6cf8b6be147ca675.png",
     "static/media/react.png": "/static/media/react.0cf951a69d8e58f83f9d.png",
+    "static/media/node.png": "/static/media/node.952a9ea986dcfa5229ad.png",
     "static/media/git.png": "/static/media/git.95e92c065c8ce5f9147a.png",
     "static/media/nodejs.png": "/static/media/nodejs.007e99f68b718e476aba.png",
     "static/media/veercel.ico": "/static/media/veercel.6d176e7fc85917a641d0.ico",
@@ -22,10 +23,10 @@
     "static/media/javascript.png": "/static/media/javascript.1ccd6ef9bb1f9c84ef00.png",
     "index.html": "/index.html",
     "main.2f12bfde.css.map": "/static/css/main.2f12bfde.css.map",
-    "main.65c63338.js.map": "/static/js/main.65c63338.js.map"
+    "main.dbbd34ce.js.map": "/static/js/main.dbbd34ce.js.map"
   },
   "entrypoints": [
     "static/css/main.2f12bfde.css",
-    "static/js/main.65c63338.js"
+    "static/js/main.dbbd34ce.js"
   ]
 }
