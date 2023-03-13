@@ -42,13 +42,20 @@ const Info = () => {
       download: true,
     },
   ];
-
+  const downloadResume = async () => {
+    window.open(
+      "https://drive.google.com/file/d/1EXTQAFDi1i8VXpzl9tlAEFsJPzo2V23r/view"
+    );
+  };
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="flex  justify-center m-auto flex-wrap">
         {Data.map((link, index) => {
           return (
-            <div className="justify-between ">
+            <div
+              className="justify-between "
+              onClick={link.id === 5 ? downloadResume : null}
+            >
               <a
                 href={link.href}
                 target="_blank"
@@ -63,13 +70,13 @@ const Info = () => {
           );
         })}
       </div>
-      <h3
+      {/* <h3
         onClick={() => window.open("https://github.com/theyashpatel")}
         className="hover:text-blue-600 cursor-pointer text-red-600"
       >
         {" "}
         Inspired by Programming With Yash
-      </h3>
+      </h3> */}
     </div>
   );
 };

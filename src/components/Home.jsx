@@ -35,7 +35,7 @@ const Home = () => {
 
         <div className="mb-10 sm:mb-0 w-3/6">
           <img
-            src={"/profife_pic.png"}
+            src={"/profile_pic.png"}
             alt="my-profile"
             className="rounded-2xl mx-auto "
           />

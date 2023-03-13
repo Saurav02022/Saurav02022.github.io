@@ -1,54 +1,65 @@
 import React from "react";
-import kfc from "../assets/portfolio/installNode.png";
+
 import myglamm from "../assets/portfolio/navbar.png";
 import bigbasket from "../assets/portfolio/reactWeather.jpg";
+import myntra from "../assets/portfolio/myntra.jpg";
+import nykaa from "../assets/portfolio/nykaa.png";
+
 import { FaGithub } from "react-icons/fa";
 import { SiNetlify } from "react-icons/si";
+
 import html from "../assets/html.png";
 import css from "../assets/css.png";
+import Chakra from "../assets/chakraui.png";
+import Bootsrap from "../assets/bootstarp.png";
 import javascript from "../assets/javascript.png";
 import reactImage from "../assets/react.png";
-import Bootsrap from "../assets/bootstarp.png";
 import Redux from "../assets/redux.png";
-import Chakra from '../assets/chakraui.png'
-import myntra from '../assets/portfolio/myntra.jpg'
+import express from "../assets/express.png";
+import node from "../assets/node.png";
+import mongo from "../assets/mongodb.png";
+
 const Project = () => {
   const portfolios = [
     {
       id: 1,
+      src: nykaa,
+      github: "https://github.com/Saurav02022/Nykaa-Clone",
+      netlify: "https://frontend-three-coral.vercel.app/",
+      websiteName: "Nykaa Clone",
+      des: "Nykaa is an e-commerce website that sells beauty, wellness, and fashion products etc.",
+      TechStack: [reactImage, Redux, Chakra, css, express, node, mongo],
+      Area: "area of responsibility :- home Page,cart Page and payment Page",
+    },
+    {
+      id: 2,
+      src: myntra,
+      github: "https://github.com/harshau9/eager-grain-3783",
+      netlify: "https://myntra-gilt.vercel.app",
+      websiteName: "Myntra Clone",
+      des: "Myntra is an e-commerce website that sells cosmetics and personal care products etc.",
+      TechStack: [reactImage, Redux, Chakra, css],
+      Area: "area of responsibility :- signup Page,login Page and admin Page",
+    },
+    {
+      id: 3,
+      src: bigbasket,
+      github: "https://github.com/Saurav02022/BigBasket-Clone",
+      netlify: "https://bigbasket-apnidukan.netlify.app",
+      websiteName: "bigbasket Clone",
+      des: "It is an E-commerce website for online supermarket of all your daily needs.",
+      TechStack: [reactImage, Redux, Chakra],
+      Area: "area of responsibility :- solo project",
+    },
+    {
+      id: 4,
       src: myglamm,
       github: "https://github.com/Saurav02022/languid-smash-8138",
       netlify: "https://bright-moxie-fed954.netlify.app",
       websiteName: "myglamm Clone",
       des: "MyGlamm is an e-commerce website that sells cosmetics and personal care products.",
       TechStack: [html, css, javascript, Bootsrap],
-    },
-    {
-      id: 2,
-      src: kfc,
-      github: "https://github.com/Saurav02022/busy-channel-5933",
-      netlify: "https://magical-kitsune-faf088.netlify.app/index.html",
-      websiteName: "Kfc Clone",
-      des: "Kentucky Fried Chicken.Kentucky Fried Chicken(KFC) is a fast food restaurant chain that specializes infried chicken.",
-      TechStack: [html, css, javascript, Bootsrap],
-    },
-    {
-      id: 3,
-      src: bigbasket,
-      github: "https://github.com/Saurav02022/major-flock-5344",
-      netlify: "https://bigbasket-apnidukan.netlify.app",
-      websiteName: "bigbasket Clone",
-      des: "It is an E-commerce website for online supermarket of all your daily needs.",
-      TechStack: [html, css, javascript, reactImage, Redux],
-    },
-    {
-      id: 4,
-      src: myntra,
-      github: "https://github.com/harshau9/eager-grain-3783",
-      netlify: "https://myntra-gilt.vercel.app",
-      websiteName: "Myntra Clone",
-      des: "Myntra is an e-commerce website that sells cosmetics and personal care products.",
-      TechStack: [html, css, javascript, reactImage, Redux,Chakra],
+      Area: "area of responsibility :- solo project",
     },
   ];
 
@@ -63,7 +74,16 @@ const Project = () => {
 
         <div className="grid sm:grid-cols-2 md:grid-cols-2 gap-8 px-12 sm:px-0">
           {portfolios.map(
-            ({ id, src, github, netlify, websiteName, des, TechStack }) => (
+            ({
+              id,
+              src,
+              github,
+              netlify,
+              websiteName,
+              des,
+              TechStack,
+              Area,
+            }) => (
               <div
                 key={id}
                 className="shadow-md shadow-[#75bcd6] rounded-lg font-Big text-xl px-5 bg-[#75bcd6] text-white"
@@ -86,12 +106,14 @@ const Project = () => {
                     />
                   ))}
                 </div>
+                <h2 className="text-lg mt-4 text-center">{Area}</h2>
                 <div className="flex items-center  justify-around">
                   <div>
                     <a
                       className="w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105"
                       href={github}
-                      target="_blank" rel="noreferrer"
+                      target="_blank"
+                      rel="noreferrer"
                     >
                       <FaGithub size={40} />
                     </a>
@@ -100,7 +122,8 @@ const Project = () => {
                     <a
                       className="w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105"
                       href={netlify}
-                      target="_blank" rel="noreferrer"
+                      target="_blank"
+                      rel="noreferrer"
                     >
                       <SiNetlify size={40} />
                     </a>

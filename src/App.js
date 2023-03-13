@@ -10,7 +10,7 @@ import Info from "./components/Info";
 
 function App() {
   return (
-    <div style={{ backgroundColor: "#CDF0EA" }}>
+    <div style={{ backgroundColor: "#CDF0EE" }}>
       <NavBar />
       <Home />
       <About />
@@ -19,7 +19,6 @@ function App() {
       <GitHubCalendarComponent />
       <Contact />
       <Info />
-     <SocialLinks/>
     </div>
   );
 }

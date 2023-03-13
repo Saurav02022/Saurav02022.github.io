@@ -128,7 +128,7 @@ const Skills = () => {
       <div className="max-w-screen-lg  mx-auto flex flex-col justify-content w-full">
         <div className="pb-5">
           <p className="text-4xl font-bold inline border-b-4 border-[#75bcd6] ml-5 ">
-            Skills
+            Skills & Tools
           </p>
         </div>
         <div className="w-full grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-8 text-center py-8 px-12 sm:px-0">
