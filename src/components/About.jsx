@@ -19,7 +19,7 @@ const About = () => {
           Fast Forwarding to today, I built a number of web applications and
           major projects. Learned a great deal about teamwork, leadership, and
           communication. After months of rigorous training, here l am looking
-          for an opportunity as a full stack web developer.
+          for an opportunity as a Full Stack Web Developer.
         </p>
       </div>
     </div>

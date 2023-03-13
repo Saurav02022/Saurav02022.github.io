@@ -16,7 +16,7 @@ const Home = () => {
           </h2>
           <p className="py-4 max-w-md tracking-wide text-lg ">
             Currently, I like to work on web application using these
-            technologies like JavaScript,React,Redux and Next Js. I like to
+            technologies like React,Redux,Redux Thunk and Chakra UI. I like to
             explore new technologies and leverage them to solve real-life
             problems.
           </p>
