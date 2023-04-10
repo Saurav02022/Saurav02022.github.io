@@ -1,5 +1,3 @@
-import React from "react";
-
 const downloadResume = async () => {
   window.open(
     "https://drive.google.com/file/d/1EXTQAFDi1i8VXpzl9tlAEFsJPzo2V23r/view"
@@ -8,25 +6,32 @@ const downloadResume = async () => {
 
 const Home = () => {
   return (
-    <div name="Home" className="sm:h-screen w-full pt-24">
+    <div name="Home" className="sm:h-screen w-full pt-24 bg-[#edf2f8]">
       <div className="max-w-screen-lg mx-auto flex flex-col items-center justify-center h-full px-4 md:flex-row">
         <div className="flex flex-col justify-center h-full w-full">
           <h2 className="text-2xl sm:text-5xl font-bold tracking-wide">
             I am a Full Stack Web Developer
           </h2>
-          <p className="py-4 max-w-md tracking-wide text-lg ">
+          <p className="py-4 max-w-md tracking-wide text-xl ">
             Currently, I like to work on web application using these
             technologies like React,Redux,Redux Thunk and Chakra UI. I like to
             explore new technologies and leverage them to solve real-life
             problems.
           </p>
-          <button className="group text-white  w-fit px-6 py-3 my-2 flex items-center rounded-md bg-gradient-to-r from-pink-500 to-cyan-500 cursor-pointer">
+          <button
+            style={{ backgroundColor: "#75bcd6" }}
+            className="group text-white  w-fit px-6 py-3 my-2 flex items-center rounded-md  cursor-pointer"
+          >
             <a
               href="/Saurav-Kumar-Resume.pdf"
               download={true}
               target={"_blank"}
               rel="noreferrer"
               onClick={downloadResume}
+              style={{
+                fontSize: "20px",
+                fontWeight: "bold",
+              }}
             >
               Resume
             </a>

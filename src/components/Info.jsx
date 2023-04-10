@@ -1,82 +1,92 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
-import React from "react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { HiOutlineMail } from "react-icons/hi";
-import { BsFillPersonLinesFill } from "react-icons/bs";
-import { FiPhoneCall } from "react-icons/fi";
+import {
+  BsFillPersonLinesFill,
+  BsWhatsapp,
+  BsLinkedin,
+  BsGithub,
+  BsMailbox2,
+  BsPhone,
+} from "react-icons/bs";
+
 const Info = () => {
   const Data = [
     {
       id: 1,
       title: "LinkedIn",
-      icon: <FaLinkedin size={30} color="#0077b5" />,
+      icon: <BsLinkedin size={30} />,
       href: "https://www.linkedin.com/in/saurav-kumar-1643b4170/",
-      style: "rounded-tr-md",
+      backgroundColor: "#00a0dc",
     },
     {
       id: 2,
-      title: " GitHub",
-      icon: <FaGithub size={30} />,
-      href: "https://github.com/Saurav02022",
+      title: " Phone",
+      icon: <BsPhone size={30} />,
+      href: `tel:${9572365331}`,
+      backgroundColor: "#ccc",
     },
     {
       id: 3,
-      title: " Mail",
-      icon: <HiOutlineMail size={30} />,
-      href: "mailto:sk729584@gmail.com",
+      title: " GitHub",
+      icon: <BsGithub size={30} />,
+      href: "https://github.com/Saurav02022",
+      backgroundColor: "#373b41",
     },
     {
       id: 4,
-      title: " Phone",
-      icon: <FiPhoneCall size={30} />,
-      href: `tel:${9572365331}`,
-      style: "rounded-br-md",
-      download: true,
+      title: " Mail",
+      icon: <BsMailbox2 size={30} />,
+      href: "mailto:sk729584@gmail.com",
+      backgroundColor: "#ccc",
     },
     {
       id: 5,
+      title: "What's app",
+      icon: <BsWhatsapp size={30} />,
+      href: "https://wa.me/9572365331",
+      style: "rounded-br-md",
+      backgroundColor: "#50CB5E",
+    },
+    {
+      id: 6,
       title: " Resume",
       icon: <BsFillPersonLinesFill size={30} />,
-      href: "/Saurav-Kumar-Resume.pdf",
-      style: "rounded-br-md",
-      download: true,
+      href: "https://drive.google.com/file/d/1EXTQAFDi1i8VXpzl9tlAEFsJPzo2V23r/view",
+      backgroundColor: "#ccc",
     },
   ];
-  const downloadResume = async () => {
-    window.open(
-      "https://drive.google.com/file/d/1EXTQAFDi1i8VXpzl9tlAEFsJPzo2V23r/view"
-    );
-  };
+
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center bg-[#edf2f8]">
       <div className="flex  justify-center m-auto flex-wrap">
         {Data.map((link, index) => {
           return (
-            <div
-              className="justify-between "
-              onClick={link.id === 5 ? downloadResume : null}
-            >
-              <a
-                href={link.href}
-                target="_blank"
-                rel="noreferrer"
-                download={link.download}
-                className={`flex flex-col items-center justify-center p-4 ${link.style}`}
+            <div className="justify-between ">
+              <button
+                key={index}
+                onClick={() => {
+                  window.open(link.href);
+                }}
+                style={{
+                  display: "flex",
+                  border: "1px solid #ccc",
+                  marginLeft: "5px",
+                  marginTop: "20px",
+                  marginBottom: "20px",
+                  padding: "10px",
+                  gap: "5px",
+                  backgroundColor: `${link.backgroundColor}`,
+                  color: "white",
+                  borderRadius: "5px",
+                  fontSize: "21px",
+                }}
+                className={`${link.style}`}
               >
+                {link.title}
                 {link.icon}
-                <h3 className="text-lg">{link.title}</h3>
-              </a>
+              </button>
             </div>
           );
         })}
       </div>
-      {/* <h3
-        onClick={() => window.open("https://github.com/theyashpatel")}
-        className="hover:text-blue-600 cursor-pointer text-red-600"
-      >
-        {" "}
-        Inspired by Programming With Yash
-      </h3> */}
     </div>
   );
 };

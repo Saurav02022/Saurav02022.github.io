@@ -1,5 +1,3 @@
-import React from "react";
-
 import myglamm from "../assets/portfolio/navbar.png";
 import bigbasket from "../assets/portfolio/reactWeather.jpg";
 import myntra from "../assets/portfolio/myntra.jpg";
@@ -23,34 +21,35 @@ const Project = () => {
   const portfolios = [
     {
       id: 1,
-      src: nykaa,
-      github: "https://github.com/Saurav02022/Nykaa-Clone",
-      netlify: "https://frontend-three-coral.vercel.app/",
-      websiteName: "Nykaa Clone",
-      des: "Nykaa is an e-commerce website that sells beauty, wellness, and fashion products etc.",
-      TechStack: [reactImage, Redux, Chakra, css, express, node, mongo],
-      Area: "area of responsibility :- home Page,cart Page and payment Page",
-    },
-    {
-      id: 2,
-      src: myntra,
-      github: "https://github.com/harshau9/eager-grain-3783",
-      netlify: "https://myntra-gilt.vercel.app",
-      websiteName: "Myntra Clone",
-      des: "Myntra is an e-commerce website that sells cosmetics and personal care products etc.",
-      TechStack: [reactImage, Redux, Chakra, css],
-      Area: "area of responsibility :- signup Page,login Page and admin Page",
-    },
-    {
-      id: 3,
       src: bigbasket,
       github: "https://github.com/Saurav02022/BigBasket-Clone",
       netlify: "https://bigbasket-apnidukan.netlify.app",
       websiteName: "bigbasket Clone",
       des: "It is an E-commerce website for online supermarket of all your daily needs.",
       TechStack: [reactImage, Redux, Chakra],
-      Area: "area of responsibility :- solo project",
+      Area: "Area of responsibility :- An individual project",
     },
+    {
+      id: 2,
+      src: nykaa,
+      github: "https://github.com/Saurav02022/Nykaa-Clone",
+      netlify: "https://frontend-three-coral.vercel.app/",
+      websiteName: "Nykaa Clone",
+      des: "Nykaa is an e-commerce website that sells beauty, wellness, and fashion products etc.",
+      TechStack: [reactImage, Redux, Chakra, node, express, mongo],
+      Area: "Area of responsibility :- Home Page,Cart Page and Payment Page",
+    },
+    {
+      id: 3,
+      src: myntra,
+      github: "https://github.com/harshau9/eager-grain-3783",
+      netlify: "https://myntra-gilt.vercel.app",
+      websiteName: "Myntra Clone",
+      des: "Myntra is an e-commerce website that sells cosmetics and personal care products etc.",
+      TechStack: [reactImage, Redux, Chakra],
+      Area: "Area of responsibility :- Signup Page,Login Page and Admin Page",
+    },
+
     {
       id: 4,
       src: myglamm,
@@ -59,7 +58,7 @@ const Project = () => {
       websiteName: "myglamm Clone",
       des: "MyGlamm is an e-commerce website that sells cosmetics and personal care products.",
       TechStack: [html, css, javascript, Bootsrap],
-      Area: "area of responsibility :- solo project",
+      Area: "Area of responsibility :- An individual project",
     },
   ];
 

@@ -1,5 +1,3 @@
-import React from "react";
-
 import html from "../assets/html.png";
 import css from "../assets/css.png";
 import javascript from "../assets/javascript.png";
@@ -17,6 +15,7 @@ import vercel from "../assets/veercel.ico";
 import netlify from "../assets/netlify.png";
 import Bootstrap from "../assets/bootstarp.png";
 import Notion from "../assets/Notion.png";
+
 const Skills = () => {
   const techs = [
     {
