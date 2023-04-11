@@ -2,40 +2,40 @@ import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-scroll";
 
+const Links = [
+  {
+    id: 1,
+    link: "Home",
+  },
+  {
+    id: 2,
+    link: "About",
+  },
+  {
+    id: 3,
+    link: "Skills",
+  },
+  {
+    id: 4,
+    link: "Project",
+  },
+  {
+    id: 5,
+    link: "Contact",
+  },
+];
 const Navbar = () => {
   const [nav, setNav] = useState(false);
-
-  const Links = [
-    {
-      id: 1,
-      link: "Home",
-    },
-    {
-      id: 2,
-      link: "About",
-    },
-    {
-      id: 3,
-      link: "Skills",
-    },
-    {
-      id: 4,
-      link: "Project",
-    },
-    {
-      id: 5,
-      link: "Contact",
-    },
-  ];
   const downloadResume = async () => {
     window.open(
       "https://drive.google.com/file/d/1EXTQAFDi1i8VXpzl9tlAEFsJPzo2V23r/view"
     );
   };
 
+
   return (
     <div className="flex justify-between items-center w-full  h-20 text-black bg-[#edf2f8] fixed z- px-2">
-      <div className="flex">
+      <div className="flex gap-2">
         <h1 className="text-3xl sm:ml-2 cursor-pointer font-semibold">
           <span className="text-[#75bcd6]">S</span>
           <span className="text-black">A</span>
@@ -59,7 +59,15 @@ const Navbar = () => {
             key={id}
             className="px-4 cursor-pointer capitalize text-black hover:scale-105 duration-200 font-semibold text-xl"
           >
-            <Link to={link} smooth duration={600}>
+            <Link
+              key={id}
+              to={link}
+              activeClass="active"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+            >
               {link}
             </Link>
           </li>

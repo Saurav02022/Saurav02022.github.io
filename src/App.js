@@ -5,7 +5,6 @@ import NavBar from "./components/NavBar";
 import Project from "./components/Project";
 import GitHubCalendarComponent from "./components/GithubCalender";
 import Info from "./components/Info";
-import SocialLinks from "./components/SocialLinks";
 import { BsHeartFill } from "react-icons/bs";
 
 function App() {
@@ -34,8 +33,8 @@ function App() {
             gap: "2px",
           }}
         >
-          Designed and Build with {<BsHeartFill color="red" size={30}/>} by Saurav Kumar
-          2023. All rights reserved.
+          Designed and Build with {<BsHeartFill color="red" size={30} />} by
+          Saurav Kumar 2023. All rights reserved.
         </h1>
       </div>
     </div>

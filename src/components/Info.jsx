@@ -6,6 +6,7 @@ import {
   BsMailbox2,
   BsPhone,
 } from "react-icons/bs";
+import { FiChevronsUp } from "react-icons/fi";
 
 const Info = () => {
   const Data = [
@@ -55,13 +56,16 @@ const Info = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center bg-[#edf2f8]">
+    <div
+      name="Contact"
+      className="flex  items-center justify-center bg-[#edf2f8] mt-1"
+    >
       <div className="flex  justify-center m-auto flex-wrap">
         {Data.map((link, index) => {
           return (
-            <div className="justify-between ">
+            <div className="justify-between">
               <button
-                key={index}
+                key={link}
                 onClick={() => {
                   window.open(link.href);
                 }}
@@ -86,6 +90,17 @@ const Info = () => {
             </div>
           );
         })}
+      </div>
+      <div
+        className="mr-5 cursor-pointer"
+        onClick={() => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        }}
+      >
+        {<FiChevronsUp size={50} />}
       </div>
     </div>
   );
