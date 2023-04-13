@@ -1,3 +1,5 @@
+import { Link } from "react-scroll";
+
 const downloadResume = async () => {
   window.open(
     "https://drive.google.com/file/d/1EXTQAFDi1i8VXpzl9tlAEFsJPzo2V23r/view"
@@ -10,7 +12,7 @@ const Home = () => {
       <div className="max-w-screen-lg mx-auto flex flex-col items-center justify-center h-full px-4 md:flex-row">
         <div className="flex flex-col justify-center h-full w-full">
           <h2 className="text-2xl sm:text-5xl font-bold tracking-wide">
-            I am a Full Stack Web Developer
+            I am a Full Stack Web Developer.
           </h2>
           <p className="py-4 max-w-md tracking-wide text-xl ">
             Currently, I like to work on web application using these
@@ -20,7 +22,7 @@ const Home = () => {
           </p>
           <button
             style={{ backgroundColor: "#75bcd6" }}
-            className="group text-white  w-fit px-6 py-3 my-2 flex items-center rounded-md  cursor-pointer"
+            className="group text-white   w-fit px-6 py-3 my-2 flex items-center rounded-md  cursor-pointer"
           >
             <a
               href="/Saurav-Kumar-Resume.pdf"
@@ -38,7 +40,7 @@ const Home = () => {
           </button>
         </div>
 
-        <div className="mb-10 sm:mb-0 w-3/6">
+        <div className="mb-10 sm:mb-0 w-5/6">
           <img
             src={"/profile_pic.png"}
             alt="my-profile"

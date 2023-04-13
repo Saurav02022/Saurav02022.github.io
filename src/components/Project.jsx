@@ -24,7 +24,7 @@ const Project = () => {
       src: bigbasket,
       github: "https://github.com/Saurav02022/BigBasket-Clone",
       netlify: "https://bigbasket-apnidukan.netlify.app",
-      websiteName: "bigbasket Clone",
+      websiteName: "Bigbasket Clone",
       des: "It is an E-commerce website for online supermarket of all your daily needs.",
       TechStack: [reactImage, Redux, Chakra],
       Area: "Area of responsibility :- An individual project",
@@ -85,7 +85,12 @@ const Project = () => {
             }) => (
               <div
                 key={id}
-                className="shadow-md shadow-[#75bcd6] rounded-lg font-Big text-xl px-5 bg-[#75bcd6] text-white"
+                className="shadow-sm rounded-lg font-Big text-xl"
+                style={{
+                  border: "1px solid #ccc",
+                  borderRadius: "10px",
+                  padding: "20px",
+                }}
               >
                 <img
                   src={src}
@@ -107,24 +112,24 @@ const Project = () => {
                 </div>
                 <h2 className="text-lg mt-4 text-center">{Area}</h2>
                 <div className="flex items-center  justify-around">
-                  <div>
+                  <div className="hover:scale-105 duration-500">
                     <a
                       className="w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105"
                       href={github}
                       target="_blank"
                       rel="noreferrer"
                     >
-                      <FaGithub size={40} />
+                      <FaGithub size={50} />
                     </a>
                   </div>
-                  <div>
+                  <div className="hover:scale-105 duration-500">
                     <a
                       className="w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105"
                       href={netlify}
                       target="_blank"
                       rel="noreferrer"
                     >
-                      <SiNetlify size={40} />
+                      <SiNetlify size={50} color="#3bc0c0" />
                     </a>
                   </div>
                 </div>

@@ -16,7 +16,6 @@ import netlify from "../assets/netlify.png";
 import Bootstrap from "../assets/bootstarp.png";
 import Notion from "../assets/Notion.png";
 
-
 const techs = [
   {
     id: 1,
@@ -122,7 +121,6 @@ const techs = [
   },
 ];
 const Skills = () => {
- 
   return (
     <div name="Skills" className="w-full mt-0 md:mt-5">
       <div className="max-w-screen-lg  mx-auto flex flex-col justify-content w-full">
@@ -135,7 +133,12 @@ const Skills = () => {
           {techs.map(({ id, src, title, style }) => (
             <div
               key={id}
-              className={`shadow-md hover:scale-105 duration-500 bg-[#75bcd6] text-white border-2 border-orange-500 rounded-lg ${style}`}
+              className={`shadow-sm hover:scale-105 duration-500`}
+              style={{
+                border: "1px solid #ccc",
+                borderRadius: "10px",
+                padding: "20px",
+              }}
             >
               <img src={src} alt="" className="w-20 mx-auto mt-1 " />
               <p className="mt-3 font-semibold">{title}</p>
