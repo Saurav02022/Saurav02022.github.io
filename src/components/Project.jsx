@@ -50,8 +50,8 @@ const Project = () => {
     {
       id: 4,
       src: myntra,
-      github: "https://github.com/harshau9/eager-grain-3783",
-      netlify: "https://myntra-gilt.vercel.app",
+      github: "https://github.com/harshau9/Myntra-Clone",
+      netlify: "https://myntra-black.vercel.app/",
       websiteName: "Myntra Clone",
       des: "Myntra Clone by using ReactJS. It is an Indian online fashion and lifestyle e-commerce company. It sells clothing, footwear, and accessories for men, women, and children. The main goal of the project is to gain teamwork experience. The UI is designed in the way so that it resembles with the Myntra website.",
       TechStack: [reactImage, Redux, Chakra],

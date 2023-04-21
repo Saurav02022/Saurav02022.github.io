@@ -25,7 +25,7 @@ const Home = () => {
           <button
             style={{ backgroundColor: "#75bcd6" }}
             className="group text-white   w-fit px-6 py-3 my-2 flex items-center rounded-md  cursor-pointer"
-            id="resume-button-2"
+            id="resume-button-1"
           >
             <a
               id="resume-link-2"

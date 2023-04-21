@@ -18,7 +18,7 @@ const GitHubCalendarComponent = () => {
         </GitHubCalendar>
       </div>
       <div className="flex flex-col justify-center item-center mx-auto mt-10">
-        <div className="github-top-langs">
+        <div id="github-top-langs">
           <p className=" flex justify-center">
             <a href="https://github.com/Saurav02022/github-readme-stats">
               <img
@@ -28,7 +28,7 @@ const GitHubCalendarComponent = () => {
             </a>
           </p>
         </div>
-        <div className="github-streak-stats">
+        <div id="github-streak-stats">
           <p className=" flex justify-center">
             <a href="(https://github-readme-streak-stats.herokuapp.com?user=Saurav02022&hide_border=true">
               <img
@@ -39,7 +39,7 @@ const GitHubCalendarComponent = () => {
           </p>
         </div>
         <div
-          className="github-stats-card"
+          id="github-stats-card"
           style={{
             width: "100%",
           }}
