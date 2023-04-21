@@ -80,7 +80,10 @@ const Navbar = () => {
             </Link>
           </li>
         ))}
-        <li className="px-4 cursor-pointer capitalize  text-black hover:scale-105 duration-200 font-semibold text-xl">
+        <button
+          className="px-4 cursor-pointer capitalize  text-black hover:scale-105 duration-200 font-semibold text-xl"
+          id="resume-button-1"
+        >
           <a
             href="/Saurav-Kumar-Resume.pdf"
             download={true}
@@ -88,10 +91,11 @@ const Navbar = () => {
             rel="noreferrer"
             onClick={downloadResume}
             className="nav-link resume"
+            id="resume-link-1"
           >
             Resume
           </a>
-        </li>
+        </button>
       </ul>
 
       <div
@@ -122,7 +126,10 @@ const Navbar = () => {
               </Link>
             </li>
           ))}
-          <li className="px-4 cursor-pointer capitalize py-6 text-4xl hover:scale-105 duration-200">
+          <button
+            className="px-4 cursor-pointer capitalize py-6 text-4xl hover:scale-105 duration-200"
+            id="resume-button-1"
+          >
             <a
               href="/Saurav-Kumar-Resume.pdf"
               download={true}
@@ -134,7 +141,7 @@ const Navbar = () => {
             >
               Resume
             </a>
-          </li>
+          </button>
         </ul>
       )}
     </div>

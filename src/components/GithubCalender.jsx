@@ -17,41 +17,27 @@ const GitHubCalendarComponent = () => {
           <ReactTooltip delayShow={20} html />
         </GitHubCalendar>
       </div>
-      <div className="flex flex-col justify-center item-center mx-auto mt-10">
-        <div id="github-top-langs">
-          <p className=" flex justify-center">
-            <a href="https://github.com/Saurav02022/github-readme-stats">
-              <img
-                alt="Saurav Kumar's Top Languages"
-                src="https://github-readme-stats.vercel.app/api/top-langs/?username=Saurav02022&langs_count=8&count_private=true&layout=compact&theme=react&hide_border=true&bg_color=0D1117"
-              />
-            </a>
-          </p>
+      <div className="flex flex-col mx-auto mt-10 items-center">
+        <div>
+          <img
+            id="github-top-langs"
+            alt="Saurav Kumar's Top Languages"
+            src="https://github-readme-stats.vercel.app/api/top-langs/?username=Saurav02022&langs_count=8&count_private=true&layout=compact&theme=react&hide_border=true&bg_color=0D1117"
+          />
         </div>
-        <div id="github-streak-stats">
-          <p className=" flex justify-center">
-            <a href="(https://github-readme-streak-stats.herokuapp.com?user=Saurav02022&hide_border=true">
-              <img
-                alt="Saurav Kumar's Top Languages"
-                src="https://github-readme-streak-stats.herokuapp.com?user=Saurav02022&hide_border=true"
-              />
-            </a>
-          </p>
+        <div>
+          <img
+            id="github-streak-stats"
+            alt="Saurav Kumar's Top Languages"
+            src="https://github-readme-streak-stats.herokuapp.com?user=Saurav02022&hide_border=true"
+          />
         </div>
-        <div
-          id="github-stats-card"
-          style={{
-            width: "100%",
-          }}
-        >
-          <p>
-            <a href="https://github.com/Saurav02022/github-readme-stats">
-              <img
-                alt="Saurav02022 Github Stats"
-                src="https://github-readme-stats.vercel.app/api?username=Saurav02022&show_icons=true&locale=en&theme=react&hide_border=true&bg_color=0D1117"
-              />
-            </a>
-          </p>
+        <div>
+          <img
+            id="github-stats-card"
+            alt="Saurav02022 Github Stats"
+            src="https://github-readme-stats.vercel.app/api?username=Saurav02022&show_icons=true&locale=en&theme=react&hide_border=true&bg_color=0D1117"
+          />
         </div>
       </div>
     </div>
