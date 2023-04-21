@@ -71,7 +71,7 @@ const Project = () => {
   ];
 
   return (
-    <div name="Project" className=" text-black">
+    <div name="Project" className=" text-black" id="projects">
       <div className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full">
         <div className="mb-10">
           <p className="text-4xl font-bold inline border-b-4 border-[#75bcd6] ml-5">
@@ -90,10 +90,11 @@ const Project = () => {
               des,
               TechStack,
               Area,
+              classes,
             }) => (
               <div
                 key={id}
-                className="shadow-sm rounded-lg font-Big text-xl"
+                className={`shadow-sm rounded-lg font-Big text-xl project-card`}
                 style={{
                   border: "1px solid #ccc",
                   borderRadius: "10px",
@@ -105,11 +106,13 @@ const Project = () => {
                   alt=""
                   className="rounded-md duration-200 hover:scale-105"
                 />
-                <h2 className="text-3xl mt-3 text-center">{websiteName}</h2>
-                <h2 className="text-xl mt-4 text-center leading-tight">
+                <h2 className="text-3xl mt-3 text-center project-title">
+                  {websiteName}
+                </h2>
+                <h2 className="text-xl mt-4 text-center leading-tight project-description">
                   {des}
                 </h2>
-                <div className="flex gap-4 items-center justify-center mt-4 ">
+                <div className="flex gap-4 items-center justify-center mt-4 project-tech-stack">
                   {TechStack.map((data, i) => (
                     <img
                       key={i}
@@ -124,7 +127,7 @@ const Project = () => {
                 <div className="flex items-center  justify-around">
                   <div className="hover:scale-105 duration-500">
                     <a
-                      className="w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105"
+                      className="w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105 project-github-link"
                       href={github}
                       target="_blank"
                       rel="noreferrer"
@@ -134,7 +137,7 @@ const Project = () => {
                   </div>
                   <div className="hover:scale-105 duration-500">
                     <a
-                      className="w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105"
+                      className="w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105 project-deployed-link"
                       href={netlify}
                       target="_blank"
                       rel="noreferrer"

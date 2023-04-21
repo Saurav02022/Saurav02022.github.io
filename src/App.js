@@ -4,7 +4,7 @@ import Home from "./components/Home";
 import NavBar from "./components/NavBar";
 import Project from "./components/Project";
 import GitHubCalendarComponent from "./components/GithubCalender";
-import Info from "./components/Info";
+import Info from "./components/Contact";
 import { BsHeartFill } from "react-icons/bs";
 
 function App() {

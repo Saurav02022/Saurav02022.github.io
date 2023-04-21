@@ -1,6 +1,10 @@
 const About = () => {
   return (
-    <div name="About" className="w-full mt-0 md:mt-5 px-8">
+    <div
+      name="About"
+      className="w-full mt-0 md:mt-5 px-8 about section"
+      id="about"
+    >
       <div className="max-w-screen-lg p-4 mx-auto flex flex-col w-full">
         <div className="pb-5">
           <p className="text-4xl font-bold inline border-b-4 border-[#75bcd6]">
@@ -22,6 +26,7 @@ const About = () => {
                 flexDirection: "column",
                 gap: "20px",
               }}
+              id="user-detail-intro"
             >
               <li>
                 Hi, I'm Saurav Kumar, a passionate Full Stack Web Developer with

@@ -7,7 +7,7 @@ const GitHubCalendarComponent = () => {
       <p className="text-center text-4xl pb-2 underline font-bold ">
         GitHub Statistics
       </p>
-      <div>
+      <div className="react-activity-calendar">
         <GitHubCalendar
           style={{ margin: "auto" }}
           username="Saurav02022"
@@ -18,7 +18,28 @@ const GitHubCalendarComponent = () => {
         </GitHubCalendar>
       </div>
       <div className="flex flex-col justify-center item-center mx-auto mt-10">
+        <div className="github-top-langs">
+          <p className=" flex justify-center">
+            <a href="https://github.com/Saurav02022/github-readme-stats">
+              <img
+                alt="Saurav Kumar's Top Languages"
+                src="https://github-readme-stats.vercel.app/api/top-langs/?username=Saurav02022&langs_count=8&count_private=true&layout=compact&theme=react&hide_border=true&bg_color=0D1117"
+              />
+            </a>
+          </p>
+        </div>
+        <div className="github-streak-stats">
+          <p className=" flex justify-center">
+            <a href="(https://github-readme-streak-stats.herokuapp.com?user=Saurav02022&hide_border=true">
+              <img
+                alt="Saurav Kumar's Top Languages"
+                src="https://github-readme-streak-stats.herokuapp.com?user=Saurav02022&hide_border=true"
+              />
+            </a>
+          </p>
+        </div>
         <div
+          className="github-stats-card"
           style={{
             width: "100%",
           }}

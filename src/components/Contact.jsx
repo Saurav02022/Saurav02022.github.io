@@ -1,6 +1,5 @@
 import {
   BsFillPersonLinesFill,
-  BsWhatsapp,
   BsLinkedin,
   BsGithub,
   BsMailbox2,
@@ -11,28 +10,28 @@ import { FiChevronsUp } from "react-icons/fi";
 const Info = () => {
   const Data = [
     {
-      id: 1,
+      id: "contact-linkedin",
       title: "LinkedIn",
       icon: <BsLinkedin size={30} />,
       href: "https://www.linkedin.com/in/saurav-kumar-1643b4170/",
       backgroundColor: "#00a0dc",
     },
     {
-      id: 2,
+      id: "contact-phone",
       title: " Phone",
       icon: <BsPhone size={30} />,
       href: `tel:${9572365331}`,
       backgroundColor: "#ccc",
     },
     {
-      id: 3,
+      id: "contact-github",
       title: " GitHub",
       icon: <BsGithub size={30} />,
       href: "https://github.com/Saurav02022",
       backgroundColor: "#373b41",
     },
     {
-      id: 4,
+      id: "contact-email",
       title: " Mail",
       icon: <BsMailbox2 size={30} />,
       href: "mailto:sk729584@gmail.com",
@@ -40,14 +39,6 @@ const Info = () => {
     },
     {
       id: 5,
-      title: "What's app",
-      icon: <BsWhatsapp size={30} />,
-      href: "https://wa.me/9572365331",
-      style: "rounded-br-md",
-      backgroundColor: "#50CB5E",
-    },
-    {
-      id: 6,
       title: " Resume",
       icon: <BsFillPersonLinesFill size={30} />,
       href: "https://drive.google.com/file/d/1EXTQAFDi1i8VXpzl9tlAEFsJPzo2V23r/view",
@@ -58,17 +49,19 @@ const Info = () => {
   return (
     <div
       name="Contact"
+      id="contact"
       className="flex  items-center justify-center bg-[#edf2f8] mt-1"
     >
       <div className="flex  justify-center m-auto flex-wrap">
         {Data.map((link, index) => {
           return (
-            <div className="justify-between">
+            <div className="justify-between" id={link.id}>
               <button
                 key={link}
                 onClick={() => {
                   window.open(link.href);
                 }}
+                id={link.id}
                 style={{
                   display: "flex",
                   border: "1px solid #ccc",

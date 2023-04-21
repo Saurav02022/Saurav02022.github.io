@@ -122,7 +122,7 @@ const techs = [
 ];
 const Skills = () => {
   return (
-    <div name="Skills" className="w-full mt-0 md:mt-5">
+    <div name="Skills" className="w-full mt-0 md:mt-5" id="skills">
       <div className="max-w-screen-lg  mx-auto flex flex-col justify-content w-full">
         <div className="pb-5">
           <p className="text-4xl font-bold inline border-b-4 border-[#75bcd6] ml-5 ">
@@ -133,15 +133,19 @@ const Skills = () => {
           {techs.map(({ id, src, title, style }) => (
             <div
               key={id}
-              className={`shadow-sm hover:scale-105 duration-500`}
+              className={`shadow-sm hover:scale-105 duration-500 skills-card`}
               style={{
                 border: "1px solid #ccc",
                 borderRadius: "10px",
                 padding: "20px",
               }}
             >
-              <img src={src} alt="" className="w-20 mx-auto mt-1 " />
-              <p className="mt-3 font-semibold">{title}</p>
+              <img
+                src={src}
+                alt=""
+                className="w-20 mx-auto mt-1 skills-card-img "
+              />
+              <p className="mt-3 font-semibold skills-card-name">{title}</p>
             </div>
           ))}
         </div>
