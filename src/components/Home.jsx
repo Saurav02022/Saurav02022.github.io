@@ -13,14 +13,14 @@ const Home = () => {
     >
       <div className="max-w-screen-lg mx-auto flex flex-col items-center justify-center h-full px-4 md:flex-row">
         <div className="flex flex-col justify-center h-full w-full">
-          <h2 className="text-2xl sm:text-5xl font-bold tracking-wide">
+          <h2 className="text-4xl font-bold tracking-wide font-signature">
             I am a Full Stack Web Developer.
           </h2>
-          <p className="py-4 max-w-md tracking-wide text-xl ">
-            Currently, I like to work on web application using these
-            technologies like React,Redux,Redux Thunk and Chakra UI. I like to
-            explore new technologies and leverage them to solve real-life
-            problems.
+          <p className="py-4 max-w-md tracking-wide text-xl font-signature">
+            I am working on web application using these technologies like
+            React,Redux,TypeScript and Chakra UI. I'm passionate about using
+            tech to solve real-world problems and constantly seeking to enhance
+            my skills in web development.
           </p>
           <button
             style={{ backgroundColor: "#75bcd6" }}
@@ -44,7 +44,7 @@ const Home = () => {
           </button>
         </div>
 
-        <div className="mb-10 sm:mb-0 w-5/6">
+        <div className="mb-10 sm:mb-0 w-4/6">
           <img
             src={"/profile_pic.png"}
             alt="my-profile"

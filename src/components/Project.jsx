@@ -19,13 +19,13 @@ const Project = () => {
   const portfolios = [
     {
       id: 1,
-      src: "https://user-images.githubusercontent.com/104342116/224603504-899f47b6-9a83-465b-ae52-54c4529a42c9.png",
-      github: "https://github.com/Saurav02022/BigBasket-Clone",
-      netlify: "https://bigbasketclone.saurav02022.vercel.app/",
-      websiteName: "BigBasket Clone",
-      des: "The goal of this project was to recreate the essential features of BigBasket.com, such as product listings, a shopping cart, checkout, and payment. The project was developed as an individual project and took 5 days to complete. The project features responsive design for a seamless shopping experience on all devices.",
-      TechStack: [reactImage, Redux, Chakra],
-      Area: "Area of responsibility :- An individual project",
+      src: "https://user-images.githubusercontent.com/104342116/213980455-c8c6e7a5-3e17-4e40-bee0-0e211a835752.png",
+      github: "https://github.com/Saurav02022/Nykaa-Clone",
+      netlify: "https://nykaaclone.saurav02022.vercel.app/",
+      websiteName: "Nykaa Clone",
+      des: "I spearheaded a team to create a Nykaa Clone - an e-commerce website for beauty, wellness, and fashion products. The project showcased my expertise in building intricate e-commerce applications, prioritizing user experience, and efficient team management.",
+      TechStack: [reactImage, Redux, Chakra, node, express, mongo],
+      Area: "Area of responsibility :- Home Page,Cart Page and Payment Page",
     },
     {
       id: 2,
@@ -33,38 +33,47 @@ const Project = () => {
       github: "https://github.com/Saurav02022/Task-Planner",
       netlify: "https://taskplanner.saurav02022.vercel.app/login",
       websiteName: "Task-Planner",
-      des: "It is a Task-Planner,it allows users to Create tasks, change their status, and view progress to Improve team productivity with this easy-to-use tool.also user can create sprint ,delete sprint,update sprint name.",
+      des: "A web app for managing tasks and sprints. Built with React, Node, and MongoDB, it allows users to assign tasks, change their status, and view progress. Improve team productivity with this easy-to-use tool.",
       TechStack: [reactImage, Redux, Chakra, node, express, mongo],
       Area: "Area of responsibility :- An individual project",
     },
     {
       id: 3,
-      src: "https://user-images.githubusercontent.com/104342116/213980455-c8c6e7a5-3e17-4e40-bee0-0e211a835752.png",
-      github: "https://github.com/Saurav02022/Nykaa-Clone",
-      netlify: "https://nykaaclone.saurav02022.vercel.app/",
-      websiteName: "Nykaa Clone",
-      des: "Nykaa is an e-commerce website that sells beauty, wellness, and fashion products etc.This clone was created to showcase my skills in building complex e-commerce applications and to provide a seamless shopping experience for users.",
-      TechStack: [reactImage, Redux, Chakra, node, express, mongo],
-      Area: "Area of responsibility :- Home Page,Cart Page and Payment Page",
+      src: "https://user-images.githubusercontent.com/104342116/224603504-899f47b6-9a83-465b-ae52-54c4529a42c9.png",
+      github: "https://github.com/Saurav02022/BigBasket-Clone",
+      netlify: "https://bigbasketclone.saurav02022.vercel.app/",
+      websiteName: "BigBasket Clone",
+      des: "I successfully clone BigBasket.com's core functionalities in a solo project, including product listings, shopping cart, checkout, and payment options. The project's responsive design ensures a seamless shopping experience across all devices, highlighting my expertise in front-end development and Full Stack development.",
+      TechStack: [reactImage, Redux, Chakra],
+      Area: "Area of responsibility :- An individual project",
     },
     {
       id: 4,
+      src: "https://user-images.githubusercontent.com/104342116/234745660-db434053-f7f7-458f-b2c8-d22ef7ff5843.png",
+      github: "https://github.com/Saurav02022/Practice-Your-Self",
+      netlify: "https://practice-your-self.vercel.app/",
+      websiteName: "Practice-Your-Self",
+      des: "Practice-Your-Self is a web app for improving speaking skills. Click Start Listening to speak, Stop Listening to finish, and Copy to save your text.",
+      TechStack: [reactImage, Chakra],
+      Area: "Area of responsibility :- An individual project",
+    },
+    {
+      id: 5,
       src: myntra,
       github: "https://github.com/harshau9/Myntra-Clone",
       netlify: "https://myntra-black.vercel.app/",
       websiteName: "Myntra Clone",
-      des: "Myntra Clone by using ReactJS. It is an Indian online fashion and lifestyle e-commerce company. It sells clothing, footwear, and accessories for men, women, and children. The main goal of the project is to gain teamwork experience. The UI is designed in the way so that it resembles with the Myntra website.",
+      des: "Myntra Clone - A collaborative project showcasing my ReactJS skills, featuring a user-friendly web app modeled after the popular Indian fashion and lifestyle e-commerce platform.",
       TechStack: [reactImage, Redux, Chakra],
       Area: "Area of responsibility :- Signup Page,Login Page and Admin Page",
     },
-
     {
-      id: 5,
+      id: 6,
       src: myglamm,
       github: "https://github.com/Saurav02022/languid-smash-8138",
       netlify: "https://bright-moxie-fed954.netlify.app",
       websiteName: "myglamm Clone",
-      des: "I created a clone of myglamm.com's home, signup, login and one product pages using HTML, CSS,Bootstrap and JavaScript.This was an individual project that I completed and pushed onto GitHub for others to view and evaluate. My clone project is intended to showcase my skills in development and ability to replicate a real-world website.",
+      des: "I developed a clone of myglamm.com's home, signup, login, and product pages using HTML, CSS, Bootstrap, and JavaScript. This individual project is hosted on GitHub to showcase my development skills and ability to replicate a real-world website.",
       TechStack: [html, css, javascript, Bootsrap],
       Area: "Area of responsibility :- An individual project",
     },
@@ -79,7 +88,7 @@ const Project = () => {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-2 gap-8 px-12 sm:px-0">
+        <div className="grid sm:grid-cols-2 md:grid-cols-2 gap-8 px-12 sm:px-0 font-signature">
           {portfolios.map(
             ({
               id,
@@ -106,10 +115,10 @@ const Project = () => {
                   alt=""
                   className="rounded-md duration-200 hover:scale-105"
                 />
-                <h2 className="text-3xl mt-3 text-center project-title">
+                <h2 className="text-2xl mt-3 text-center project-title font-bold">
                   {websiteName}
                 </h2>
-                <h2 className="text-xl mt-4 text-center leading-tight project-description">
+                <h2 className="text-lg mt-4 text-center  project-description">
                   {des}
                 </h2>
                 <div className="flex gap-4 items-center justify-center mt-4 project-tech-stack">

@@ -32,6 +32,7 @@ function App() {
             display: "flex",
             gap: "2px",
           }}
+          className="font-signature"
         >
           Designed and Build with {<BsHeartFill color="red" size={30} />} by
           Saurav Kumar 2023. All rights reserved.

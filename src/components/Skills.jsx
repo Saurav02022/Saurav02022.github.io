@@ -145,7 +145,7 @@ const Skills = () => {
                 alt=""
                 className="w-20 mx-auto mt-1 skills-card-img "
               />
-              <p className="mt-3 font-semibold skills-card-name">{title}</p>
+              <p className="mt-3 font-semibold skills-card-name font-signature">{title}</p>
             </div>
           ))}
         </div>

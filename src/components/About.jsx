@@ -27,6 +27,7 @@ const About = () => {
                 gap: "20px",
               }}
               id="user-detail-intro"
+              className="font-signature"
             >
               <li>
                 Hi, I'm Saurav Kumar, a passionate Full Stack Web Developer with

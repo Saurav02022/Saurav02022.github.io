@@ -64,7 +64,7 @@ const Navbar = () => {
         {Links.map(({ id, link, classes }) => (
           <li
             key={id}
-            className="px-4 cursor-pointer capitalize text-black hover:scale-105 duration-200 font-semibold text-xl"
+            className="px-4 cursor-pointer capitalize text-black hover:scale-105 duration-200 font-semibold text-xl font-signature"
           >
             <Link
               className={classes}
