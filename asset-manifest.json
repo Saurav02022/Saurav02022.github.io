@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.76f18554.css",
-    "main.js": "/static/js/main.32c46a87.js",
+    "main.js": "/static/js/main.c6ef0970.js",
     "static/media/navbar.png": "/static/media/navbar.e6e671860f7c60be0138.png",
     "static/media/myntra.jpg": "/static/media/myntra.01d8bb1cecee125cf76b.jpg",
     "static/media/bootstarp.png": "/static/media/bootstarp.32c248432e2b86298964.png",
@@ -21,10 +21,10 @@
     "static/media/javascript.png": "/static/media/javascript.1ccd6ef9bb1f9c84ef00.png",
     "index.html": "/index.html",
     "main.76f18554.css.map": "/static/css/main.76f18554.css.map",
-    "main.32c46a87.js.map": "/static/js/main.32c46a87.js.map"
+    "main.c6ef0970.js.map": "/static/js/main.c6ef0970.js.map"
   },
   "entrypoints": [
     "static/css/main.76f18554.css",
-    "static/js/main.32c46a87.js"
+    "static/js/main.c6ef0970.js"
   ]
 }
