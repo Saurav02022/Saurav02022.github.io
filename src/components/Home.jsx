@@ -13,14 +13,16 @@ const Home = () => {
     >
       <div className="max-w-screen-lg mx-auto flex flex-col items-center justify-center h-full px-4 md:flex-row">
         <div className="flex flex-col justify-center h-full w-full">
-          <h2 className="text-4xl font-bold tracking-wide font-signature">
+          <h2 className="text-3xl font-bold tracking-wide font-signature lg:text-4xl">
             I am a Full Stack Web Developer.
           </h2>
-          <p className="py-4 max-w-md tracking-wide text-xl font-signature">
-            I am working on web application using these technologies like
-            React,Redux,TypeScript and Chakra UI. I'm passionate about using
-            tech to solve real-world problems and constantly seeking to enhance
-            my skills in web development.
+          <p className="py-4 max-w-md tracking-wide text-lg  font-signature">
+            I am currently developing a web application utilizing the MERN
+            stack. As a results-driven problem-solver with a passion for
+            technology, I am always eager to take on new challenges and
+            opportunities to grow and enhance my skill set. Continuously seeking
+            to learn and adapt, I am committed to delivering high-quality
+            solutions that effectively address real-world problems.
           </p>
           <button
             style={{ backgroundColor: "#75bcd6" }}
@@ -44,7 +46,7 @@ const Home = () => {
           </button>
         </div>
 
-        <div className="mb-10 sm:mb-0 w-4/6">
+        <div className="mb-10 sm:mb-0 w-4/6 md:w-5/6">
           <img
             src={"/profile_pic.png"}
             alt="my-profile"

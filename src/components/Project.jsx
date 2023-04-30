@@ -110,17 +110,31 @@ const Project = () => {
                   padding: "20px",
                 }}
               >
-                <img
-                  src={src}
-                  alt=""
-                  className="rounded-md duration-200 hover:scale-105"
-                />
+                <div
+                  style={{
+                    height: "12rem",
+                  }}
+                >
+                  <img
+                    src={src}
+                    alt=""
+                    className="rounded-md duration-200 hover:scale-105"
+                  />
+                </div>
                 <h2 className="text-2xl mt-3 text-center project-title font-bold">
                   {websiteName}
                 </h2>
-                <h2 className="text-lg mt-4 text-center  project-description">
-                  {des}
-                </h2>
+                <div
+                  style={{
+                    height: "5em",
+                    overflow: "auto",
+                    textOverflow: "ellipsis",
+                  }}
+                >
+                  <h2 className="text-lg mt-4 text-center  project-description">
+                    {des}
+                  </h2>
+                </div>
                 <div className="flex gap-4 items-center justify-center mt-4 project-tech-stack">
                   {TechStack.map((data, i) => (
                     <img

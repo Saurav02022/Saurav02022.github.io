@@ -26,13 +26,13 @@ const About = () => {
                 flexDirection: "column",
                 gap: "20px",
               }}
-              id="user-detail-intro"
               className="font-signature"
+              id="user-detail-intro"
             >
               <li>
-                Hi, I'm Saurav Kumar, a passionate Full Stack Web Developer with
-                a talent for crafting dynamic and responsive web applications
-                using MERN Stack.
+                Hi, I'm Saurav Kumar, a passionate Full Stack Web Developer
+                proficient in technology stacks like JavaScript, React, Redux,
+                Node.js, Express.js, and MongoDB.
               </li>
               <li>
                 With exceptional administrative competencies and a keen eye for
