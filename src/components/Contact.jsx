@@ -42,27 +42,25 @@ const contactData = [
 // Button component for individual contact links
 const ContactButton = ({ link }) => {
   return (
-    <div className="w-48">
-      <button
-        onClick={() => window.open(link.href)}
-        className="relative flex items-center justify-between border border-gray-300 rounded-lg p-4 transition-transform transform hover:scale-105 hover:shadow-2xl"
-        style={{
-          background: link.backgroundColor,
-          color: "white",
-        }}
-        aria-label={link.title}
-        data-tip={link.title}
-        data-for={link.id}
-      >
-        <span className="flex items-center">
-          <span className="mr-2">{link.icon}</span>
-          <span className="font-semibold">{link.title}</span>
-        </span>
-        <ReactTooltip id={link.id} place="top" type="dark" effect="float">
-          {link.title}
-        </ReactTooltip>
-      </button>
-    </div>
+    <button
+      onClick={() => window.open(link.href)}
+      className="relative flex items-center justify-between border border-gray-300 rounded-lg p-2.5 transition-transform transform hover:scale-105 hover:shadow-2xl"
+      style={{
+        background: link.backgroundColor,
+        color: "white",
+      }}
+      aria-label={link.title}
+      data-tip={link.title}
+      data-for={link.id}
+    >
+      <span className="flex items-center">
+        <span className="mr-2">{link.icon}</span>
+        <span className="font-semibold">{link.title}</span>
+      </span>
+      <ReactTooltip id={link.id} place="top" type="dark" effect="float">
+        {link.title}
+      </ReactTooltip>
+    </button>
   );
 };
 
@@ -80,7 +78,7 @@ const Info = () => {
         <p className="text-center mb-8 text-gray-600 text-lg">
           Connect with me through any of the platforms below!
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-10">
           {contactData.map((link) => (
             <ContactButton key={link.id} link={link} />
           ))}
