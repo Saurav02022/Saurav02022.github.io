@@ -10,38 +10,44 @@ const Home = () => {
   return (
     <section
       name="Home"
-      className="sm:h-screen w-full pt-20 md:pt-0 bg-gradient-to-r from-[#f0f4ff] to-[#ffffff] relative"
+      className="min-h-screen w-full bg-gradient-to-r from-[#f0f4ff] to-[#ffffff] flex items-center justify-center pt-20"
       id="home"
     >
-      <div className="max-w-screen-lg mx-auto flex flex-col-reverse md:flex-row items-center justify-between h-full space-y-12 md:space-y-0 md:space-x-12 p-10 md:px-0">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center justify-between gap-10 p-10">
         {/* Text Section */}
-        <div className="flex flex-col justify-center h-full w-full md:w-1/2 text-center md:text-left space-y-6">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#1a1a1a] leading-snug">
-            I am Saurav Kumar,
-            <br /> a Frontend-Focused Full Stack Developer.
-          </h2>
-          <p className="text-lg md:text-xl text-[#333] leading-relaxed md:max-w-lg">
-            With over 2 years of experience, I specialize in frontend
+        <div className="space-y-6 md:space-y-8 text-center md:text-left">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#1a1a1a] leading-tight">
+            I’m <span className="text-[#75bcd6]">Saurav Kumar</span>,
+            <br /> a Passionate Frontend-Focused Full Stack Developer.
+          </h1>
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#333] leading-relaxed max-w-lg mx-auto md:mx-0">
+            With over 2 years of experience, I specialise in frontend
             development using React.js, Next.js, and TypeScript. I create
-            intuitive, responsive user interfaces and have hands-on experience
-            with backend technologies like Node.js and MongoDB. I’m passionate
-            about scalable web applications and continuous learning.
+            intuitive and responsive user interfaces while also having hands-on
+            experience with backend technologies like Node.js and MongoDB,
+            allowing me to deliver cohesive full-stack solutions.
           </p>
           <button
-            className="bg-[#75bcd6] text-white hover:bg-[#5aa7c4] transition-all duration-300 w-fit px-8 py-4 rounded-md shadow-md hover:shadow-lg transform hover:scale-105 mx-auto md:mx-0"
+            className="bg-[#75bcd6] text-white hover:bg-[#5aa7c4] transition-all duration-300 w-fit px-6 py-3 sm:px-8 sm:py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 focus:ring focus:ring-[#5aa7c4] focus:outline-none mx-auto md:mx-0"
             onClick={downloadResume}
+            aria-label="Download Resume"
           >
-            <span className="text-xl font-semibold">Download Resume</span>
+            <span className="text-lg sm:text-xl font-semibold">
+              Download My Resume
+            </span>
           </button>
         </div>
 
         {/* Image Section */}
-        <div className="w-full md:w-1/2 flex justify-center">
-          <img
-            src="/profile_pic.png"
-            alt="Portrait of Saurav Kumar"
-            className="rounded-2xl shadow-lg transition-transform duration-500 hover:scale-105 w-3/4 md:w-full"
-          />
+        <div className="flex justify-center md:justify-end">
+          <div className="relative w-3/4 md:w-full lg:w-3/4">
+            <img
+              src="/profile_pic.png"
+              alt="Portrait of Saurav Kumar"
+              className="rounded-full shadow-lg hover:shadow-xl transition-transform duration-300 hover:scale-105"
+              loading="lazy"
+            />
+          </div>
         </div>
       </div>
     </section>

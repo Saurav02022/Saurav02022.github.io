@@ -71,20 +71,20 @@ const Info = () => {
       id="contact"
       className="w-full bg-gradient-to-r from-[#f0f4ff] to-[#ffffff]"
     >
-      <div className="max-w-screen-lg mx-auto flex flex-col justify-center items-center p-10 md:px-0">
+      <div className="container mx-auto flex flex-col justify-center items-center p-10">
         <h2 className="text-5xl font-bold mb-5 text-gray-800 text-center transition-transform transform hover:scale-105">
           Get in Touch
         </h2>
-        <p className="text-center mb-8 text-gray-600 text-lg">
+        <p className="text-center mb-5 text-gray-600 text-lg">
           Connect with me through any of the platforms below!
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 my-10">
           {contactData.map((link) => (
             <ContactButton key={link.id} link={link} />
           ))}
         </div>
         <div
-          className="mt-10 cursor-pointer hover:text-[#00a0dc] transition duration-300 transform hover:scale-110"
+          className="cursor-pointer hover:text-[#00a0dc] transition duration-300 transform hover:scale-110"
           onClick={() => {
             window.scrollTo({
               top: 0,
@@ -97,8 +97,8 @@ const Info = () => {
         </div>
 
         {/* Footer Section */}
-        <footer className="mt-10 text-center text-gray-600 text-sm">
-          <span className="flex justify-center items-center">
+        <footer className="text-center text-gray-600 text-sm">
+          <span className="flex gap-2.5 justify-center items-center">
             Designed and built with <BsHeartFill color="red" size={20} />
           </span>{" "}
           <span>by</span>

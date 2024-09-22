@@ -8,12 +8,14 @@ const GitHubCalendarComponent = () => {
       className="w-full bg-gradient-to-r from-[#f0f4ff] to-[#ffffff]"
       id="github-statistics"
     >
-      <div className="max-w-screen-lg mx-auto flex flex-col justify-center w-full p-10 md:px-0">
-        <div className="mb-10 text-left">
-          <h2 className="text-4xl font-bold text-[#2b2b2b] border-b-4 border-[#75bcd6] inline-block pb-2">
-            GitHub Statistics
+      <div className="container mx-auto flex flex-col w-full p-10">
+        <header className="pb-10 text-left">
+          <h2 className="text-4xl font-bold text-gray-800">
+            <span className="border-b-4 border-[#75bcd6]">
+              GitHub Statistics
+            </span>
           </h2>
-        </div>
+        </header>
 
         <div className="react-activity-calendar mb-10">
           <GitHubCalendar
@@ -27,7 +29,7 @@ const GitHubCalendarComponent = () => {
           </GitHubCalendar>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mx-auto mt-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mx-auto">
           {[
             {
               id: "github-top-langs",

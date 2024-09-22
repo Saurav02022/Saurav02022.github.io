@@ -33,7 +33,7 @@ const techs = [
   {
     id: 4,
     src: reactImage,
-    title: "React Js",
+    title: "React.js",
     style: "shadow-cyan-200 border-cyan-200",
   },
   {
@@ -42,17 +42,17 @@ const techs = [
     title: "Redux",
     style: "shadow-violet-500 border-violet-500",
   },
-  { id: 6, src: nextjs, title: "Next Js", style: "shadow-black border-black" },
+  { id: 6, src: nextjs, title: "Next.js", style: "shadow-black border-black" },
   {
     id: 7,
     src: NodeJs,
-    title: "Node Js",
+    title: "Node.js",
     style: "shadow-green-600 border-green-600",
   },
   {
     id: 8,
     src: MongoDb,
-    title: "MongoDb",
+    title: "MongoDB",
     style: "shadow-yellow-800 border-yellow-800",
   },
   {
@@ -64,13 +64,13 @@ const techs = [
   {
     id: 10,
     src: tailwind,
-    title: "Tailwind",
+    title: "Tailwind CSS",
     style: "shadow-cyan-500 border-cyan-500",
   },
   {
     id: 11,
     src: ChakraUi,
-    title: "Chakra Ui",
+    title: "Chakra UI",
     style: "shadow-blue-400 border-blue-400",
   },
   { id: 12, src: Notion, title: "Notion", style: "shadow-black border-black" },
@@ -98,24 +98,27 @@ const Skills = () => {
       className="w-full bg-gradient-to-r from-[#f0f4ff] to-[#ffffff]"
       id="skills"
     >
-      <div className="max-w-screen-lg mx-auto flex flex-col w-full p-10 md:px-0">
-        <header className="pb-5">
-          <h2 className="text-4xl font-bold text-left">
+      <div className="container mx-auto flex flex-col w-full p-10">
+        <header className="pb-10 text-left">
+          <h2 className="text-4xl font-bold text-gray-800 mb-2.5">
             <span className="border-b-4 border-[#75bcd6]">Skills & Tools</span>
           </h2>
-          <p className="mt-2 text-lg text-gray-600">
+          <p className="text-lg text-gray-600">
             Here are some of the technologies and tools I work with:
           </p>
         </header>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 text-center py-8 px-4">
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10 text-center">
           {techs.map(({ id, src, title, style }) => (
             <div
               key={id}
               className={`shadow-lg transition-transform duration-300 hover:scale-105 ${style} rounded-lg p-5 flex flex-col items-center`}
-              style={{ border: "1px solid #ccc" }}
+              style={{ border: "1px solid #e0e0e0" }} // Lighter border for a softer look
             >
-              <img src={src} alt={title} className="w-16 h-16 mb-2" />
-              <p className="mt-2 font-semibold text-lg">{title}</p>
+              <img src={src} alt={title} className="w-16 h-16 object-contain" />
+              <p className="mt-2.5 font-semibold text-lg text-gray-800">
+                {title}
+              </p>
             </div>
           ))}
         </div>
