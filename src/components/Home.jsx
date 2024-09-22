@@ -1,60 +1,50 @@
-const downloadResume = async () => {
-  window.open(
-    "https://drive.google.com/file/d/1EXTQAFDi1i8VXpzl9tlAEFsJPzo2V23r/view"
-  );
-};
-
 const Home = () => {
+  const downloadResume = async () => {
+    window.open(
+      "https://drive.google.com/file/d/1XDP7rusRRjdXCl0pDYVi8jRVI-5J3G7s/view?usp=sharing",
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
+
   return (
-    <div
+    <section
       name="Home"
-      className="sm:h-screen w-full pt-24 bg-[#edf2f8]"
+      className="sm:h-screen w-full pt-20 md:pt-0 bg-gradient-to-r from-[#f0f4ff] to-[#ffffff] relative"
       id="home"
     >
-      <div className="max-w-screen-lg mx-auto flex flex-col items-center justify-center h-full px-4 md:flex-row">
-        <div className="flex flex-col justify-center h-full w-full">
-          <h2 className="text-3xl font-bold tracking-wide font-signature lg:text-4xl">
-            I am a Full Stack Web Developer.
+      <div className="max-w-screen-lg mx-auto flex flex-col-reverse md:flex-row items-center justify-between h-full space-y-12 md:space-y-0 md:space-x-12 p-10 md:px-0">
+        {/* Text Section */}
+        <div className="flex flex-col justify-center h-full w-full md:w-1/2 text-center md:text-left space-y-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#1a1a1a] leading-snug">
+            I am Saurav Kumar,
+            <br /> a Frontend-Focused Full Stack Developer.
           </h2>
-          <p className="py-4 max-w-md tracking-wide text-lg  font-signature">
-            I am currently developing a web application utilizing the MERN
-            stack. As a results-driven problem-solver with a passion for
-            technology, I am always eager to take on new challenges and
-            opportunities to grow and enhance my skill set. Continuously seeking
-            to learn and adapt, I am committed to delivering high-quality
-            solutions that effectively address real-world problems.
+          <p className="text-lg md:text-xl text-[#333] leading-relaxed md:max-w-lg">
+            With over 2 years of experience, I specialize in frontend
+            development using React.js, Next.js, and TypeScript. I create
+            intuitive, responsive user interfaces and have hands-on experience
+            with backend technologies like Node.js and MongoDB. I’m passionate
+            about scalable web applications and continuous learning.
           </p>
           <button
-            style={{ backgroundColor: "#75bcd6" }}
-            className="group text-white   w-fit px-6 py-3 my-2 flex items-center rounded-md  cursor-pointer"
-            id="resume-button-2"
+            className="bg-[#75bcd6] text-white hover:bg-[#5aa7c4] transition-all duration-300 w-fit px-8 py-4 rounded-md shadow-md hover:shadow-lg transform hover:scale-105 mx-auto md:mx-0"
+            onClick={downloadResume}
           >
-            <a
-              id="resume-link-2"
-              href="/Saurav-Kumar-Resume.pdf"
-              download={true}
-              target={"_blank"}
-              rel="noreferrer"
-              onClick={downloadResume}
-              style={{
-                fontSize: "20px",
-                fontWeight: "bold",
-              }}
-            >
-              Resume
-            </a>
+            <span className="text-xl font-semibold">Download Resume</span>
           </button>
         </div>
 
-        <div className="mb-10 sm:mb-0 w-4/6 md:w-5/6">
+        {/* Image Section */}
+        <div className="w-full md:w-1/2 flex justify-center">
           <img
-            src={"/profile_pic.png"}
-            alt="my-profile"
-            className="rounded-2xl mx-auto home-img"
+            src="/profile_pic.png"
+            alt="Portrait of Saurav Kumar"
+            className="rounded-2xl shadow-lg transition-transform duration-500 hover:scale-105 w-3/4 md:w-full"
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

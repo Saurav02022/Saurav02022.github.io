@@ -23,12 +23,7 @@ const techs = [
     title: "HTML",
     style: "shadow-orange-500 border-orange-500",
   },
-  {
-    id: 2,
-    src: css,
-    title: "CSS",
-    style: "shadow-blue-500 border-blue-500",
-  },
+  { id: 2, src: css, title: "CSS", style: "shadow-blue-500 border-blue-500" },
   {
     id: 3,
     src: javascript,
@@ -47,12 +42,7 @@ const techs = [
     title: "Redux",
     style: "shadow-violet-500 border-violet-500",
   },
-  {
-    id: 6,
-    src: nextjs,
-    title: "Next Js",
-    style: "shadow-black border-black",
-  },
+  { id: 6, src: nextjs, title: "Next Js", style: "shadow-black border-black" },
   {
     id: 7,
     src: NodeJs,
@@ -83,28 +73,13 @@ const techs = [
     title: "Chakra Ui",
     style: "shadow-blue-400 border-blue-400",
   },
-  {
-    id: 12,
-    src: Notion,
-    title: "Notion",
-    style: "shadow-black border-black",
-  },
-  {
-    id: 13,
-    src: github,
-    title: "GitHub",
-    style: "shadow-black border-black",
-  },
-  {
-    id: 14,
-    src: git,
-    title: "git",
-    style: "shadow-teal-800",
-  },
+  { id: 12, src: Notion, title: "Notion", style: "shadow-black border-black" },
+  { id: 13, src: github, title: "GitHub", style: "shadow-black border-black" },
+  { id: 14, src: git, title: "Git", style: "shadow-teal-800" },
   {
     id: 15,
     src: vscode,
-    title: "Vs Code",
+    title: "VS Code",
     style: "shadow-blue-400 border-blue-400",
   },
   {
@@ -113,44 +88,39 @@ const techs = [
     title: "Netlify",
     style: "shadow-teal-500 border-teal-500",
   },
-  {
-    id: 17,
-    src: vercel,
-    title: "Vercel",
-    style: "shadow-black border-black",
-  },
+  { id: 17, src: vercel, title: "Vercel", style: "shadow-black border-black" },
 ];
+
 const Skills = () => {
   return (
-    <div name="Skills" className="w-full mt-0 md:mt-5" id="skills">
-      <div className="max-w-screen-lg  mx-auto flex flex-col justify-content w-full">
-        <div className="pb-5">
-          <p className="text-4xl font-bold inline border-b-4 border-[#75bcd6] ml-5 ">
-            Skills & Tools
+    <section
+      name="Skills"
+      className="w-full bg-gradient-to-r from-[#f0f4ff] to-[#ffffff]"
+      id="skills"
+    >
+      <div className="max-w-screen-lg mx-auto flex flex-col w-full p-10 md:px-0">
+        <header className="pb-5">
+          <h2 className="text-4xl font-bold text-left">
+            <span className="border-b-4 border-[#75bcd6]">Skills & Tools</span>
+          </h2>
+          <p className="mt-2 text-lg text-gray-600">
+            Here are some of the technologies and tools I work with:
           </p>
-        </div>
-        <div className="w-full grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-8 text-center py-8 px-12 sm:px-0">
+        </header>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 text-center py-8 px-4">
           {techs.map(({ id, src, title, style }) => (
             <div
               key={id}
-              className={`shadow-sm hover:scale-105 duration-500 skills-card`}
-              style={{
-                border: "1px solid #ccc",
-                borderRadius: "10px",
-                padding: "20px",
-              }}
+              className={`shadow-lg transition-transform duration-300 hover:scale-105 ${style} rounded-lg p-5 flex flex-col items-center`}
+              style={{ border: "1px solid #ccc" }}
             >
-              <img
-                src={src}
-                alt=""
-                className="w-20 mx-auto mt-1 skills-card-img "
-              />
-              <p className="mt-3 font-semibold skills-card-name font-signature">{title}</p>
+              <img src={src} alt={title} className="w-16 h-16 mb-2" />
+              <p className="mt-2 font-semibold text-lg">{title}</p>
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

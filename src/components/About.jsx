@@ -1,59 +1,52 @@
 const About = () => {
   return (
-    <div
+    <section
       name="About"
-      className="w-full mt-0 md:mt-5 px-8 about section"
+      className="w-full bg-gradient-to-r from-[#f0f4ff] to-[#ffffff]"
       id="about"
     >
-      <div className="max-w-screen-lg p-4 mx-auto flex flex-col w-full">
-        <div className="pb-5">
-          <p className="text-4xl font-bold inline border-b-4 border-[#75bcd6]">
-            About me
-          </p>
-        </div>
-        <div className="flex flex-col md:flex-col lg:flex-row 2xl:flex-row">
-          <img
-            src="https://www.techbabble.zone/content/images/2021/07/46207-programmer-1.gif"
-            alt="programmer-1.gif"
-            className="md:h-96 max-w-3xl"
-          />
-          <div>
-            <ul
-              style={{
-                listStyleType: "disc",
-                fontSize: "20px",
-                display: "flex",
-                flexDirection: "column",
-                gap: "20px",
-              }}
-              className="font-signature"
-              id="user-detail-intro"
-            >
-              <li>
-                Hi, I'm Saurav Kumar, a passionate Full Stack Web Developer
-                proficient in technology stacks like JavaScript, React, Redux,
-                Node.js, Express.js, and MongoDB.
-              </li>
-              <li>
-                With exceptional administrative competencies and a keen eye for
-                detail, I possess well-honed communication skills and a knack
-                for writing efficient code.
-              </li>
-              <li>
-                I've successfully completed numerous web-based projects and
-                developed a deep understanding of teamwork, leadership, and
-                communication.
-              </li>
-              <li>
-                After undergoing rigorous training and development, I'm eagerly
-                seeking a challenging opportunity to further develop my skills
-                and grow as a professional.
-              </li>
-            </ul>
-          </div>
+      <div className="max-w-screen-lg mx-auto flex flex-col w-full p-10 md:px-0">
+        <header className="pb-5">
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">
+            <span className="border-b-4 border-[#75bcd6]">About Me</span>
+          </h2>
+        </header>
+
+        <div className="mt-6 space-y-4">
+          <ul className="list-disc text-lg text-gray-700 space-y-4 font-medium pl-5">
+            <li>
+              Hello! I’m <strong>Saurav Kumar</strong>, a dedicated
+              Frontend-Focused Full Stack Developer with over{" "}
+              <strong>2 years of experience</strong> in creating innovative web
+              applications.
+            </li>
+            <li>
+              I have had the privilege of working with esteemed organizations
+              like <strong>Nuveb</strong> and <strong>Masai School</strong>,
+              where I honed my skills in full-stack development.
+            </li>
+            <li>
+              My expertise lies in leveraging modern technologies, especially{" "}
+              <strong>JavaScript frameworks</strong> such as{" "}
+              <strong>React.js</strong> and <strong>Next.js</strong>, along with{" "}
+              <strong>TypeScript</strong>, to design responsive and interactive
+              user interfaces.
+            </li>
+            <li>
+              I also bring hands-on experience with backend technologies
+              including <strong>Node.js</strong> and <strong>MongoDB</strong>,
+              allowing me to work effectively across the entire development
+              stack.
+            </li>
+            <li>
+              Passionate about continuous improvement, I actively seek
+              opportunities to expand my knowledge and stay abreast of the
+              latest industry trends and best practices.
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
