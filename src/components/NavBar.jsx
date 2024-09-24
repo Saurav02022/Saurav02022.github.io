@@ -1,6 +1,7 @@
 import React, { useState, useCallback, memo } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-scroll";
+import ReactGA from "react-ga4";
 
 const LINKS = [
   { id: 1, link: "Home", classes: "nav-link home" },
@@ -17,6 +18,13 @@ const Logo = memo(() => (
     duration={500}
     offset={-100}
     className="text-2xl md:text-3xl font-bold cursor-pointer"
+    onClick={() => {
+      ReactGA.event({
+        category: "navbar",
+        action: "Clicked on the logo.",
+        label: "Saurav Kumar logo",
+      });
+    }}
   >
     <span className="text-[#75bcd6]">Saurav</span>
     <span className="text-gray-800"> Kumar</span>
@@ -33,7 +41,14 @@ const NavLink = memo(({ link, classes, onClick }) => (
       smooth={true}
       offset={-100}
       duration={500}
-      onClick={onClick}
+      onClick={() => {
+        onClick();
+        ReactGA.event({
+          category: "navbar",
+          action: `Clicked on the ${link}.`,
+          label: link,
+        });
+      }}
     >
       {link}
       <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#75bcd6] transition-all duration-300 group-hover:w-full"></span>
@@ -51,7 +66,13 @@ const ResumeButton = memo(({ className }) => {
   return (
     <button
       className={`${className} bg-[#75bcd6] text-white px-6 py-2 rounded-full hover:bg-[#5a9eb8] transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#75bcd6] focus:ring-opacity-50`}
-      onClick={downloadResume}
+      onClick={() => {
+        downloadResume();
+        ReactGA.event({
+          category: "navbar",
+          action: "Clicked on the resume button.",
+        });
+      }}
     >
       Resume
     </button>
