@@ -1,5 +1,3 @@
-import ReactGA from "react-ga4";
-
 const Home = () => {
   const downloadResume = async () => {
     window.open(
@@ -31,13 +29,7 @@ const Home = () => {
           </p>
           <button
             className="bg-[#75bcd6] text-white hover:bg-[#5aa7c4] transition-all duration-300 w-fit px-6 py-3 sm:px-8 sm:py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 focus:ring focus:ring-[#5aa7c4] focus:outline-none mx-auto md:mx-0"
-            onClick={() => {
-              downloadResume();
-              ReactGA.event({
-                category: "Home",
-                action: "Clicked on the resume button.",
-              });
-            }}
+            onClick={downloadResume}
             aria-label="Download Resume"
           >
             <span className="text-lg sm:text-xl font-semibold">

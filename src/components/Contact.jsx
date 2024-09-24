@@ -1,10 +1,9 @@
-import ReactGA from "react-ga4";
 import {
-  BsGithub,
-  BsHeartFill,
   BsLinkedin,
+  BsGithub,
   BsMailbox2,
   BsPhone,
+  BsHeartFill,
 } from "react-icons/bs";
 import { FiChevronsUp } from "react-icons/fi";
 import ReactTooltip from "react-tooltip";
@@ -44,14 +43,7 @@ const contactData = [
 const ContactButton = ({ link }) => {
   return (
     <button
-      onClick={() => {
-        window.open(link.href);
-        ReactGA.event({
-          category: "Contact",
-          action: `Clicked on the ${link?.id} button.`,
-          label: link?.id,
-        });
-      }}
+      onClick={() => window.open(link.href)}
       className="relative flex items-center justify-between border border-gray-300 rounded-lg p-2.5 transition-transform transform hover:scale-105 hover:shadow-2xl"
       style={{
         background: link.backgroundColor,
@@ -97,10 +89,6 @@ const Info = () => {
             window.scrollTo({
               top: 0,
               behavior: "smooth",
-            });
-            ReactGA.event({
-              category: "Contact",
-              action: "Clicked on the bottom to top button.",
             });
           }}
           aria-label="Scroll to top"

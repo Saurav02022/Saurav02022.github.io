@@ -1,19 +1,18 @@
-import myntra from "../assets/portfolio/myntra.jpg";
 import myglamm from "../assets/portfolio/navbar.png";
+import myntra from "../assets/portfolio/myntra.jpg";
 
-import ReactGA from "react-ga4";
 import { FaGithub, FaLink } from "react-icons/fa";
 
-import Bootstrap from "../assets/bootstarp.png";
-import Chakra from "../assets/chakraui.png";
-import css from "../assets/css.png";
-import express from "../assets/express.png";
 import html from "../assets/html.png";
+import css from "../assets/css.png";
+import Chakra from "../assets/chakraui.png";
+import Bootstrap from "../assets/bootstarp.png";
 import javascript from "../assets/javascript.png";
-import mongo from "../assets/mongodb.png";
-import node from "../assets/node.png";
 import reactImage from "../assets/react.png";
 import Redux from "../assets/redux.png";
+import express from "../assets/express.png";
+import node from "../assets/node.png";
+import mongo from "../assets/mongodb.png";
 
 const portfolios = [
   {
@@ -62,18 +61,18 @@ const portfolios = [
     techStack: [html, css, javascript, Bootstrap],
     responsibilities: "Created a responsive UI with smooth navigation.",
   },
-  // {
-  //   id: 5,
-  //   src: "https://user-images.githubusercontent.com/104342116/213980455-c8c6e7a5-3e17-4e40-bee0-0e211a835752.png",
-  //   github: "https://github.com/Saurav02022/Nykaa-Clone",
-  //   netlify: "https://nykaaclone.saurav02022.vercel.app/",
-  //   websiteName: "Nykaa Clone",
-  //   description:
-  //     "Led the development of a feature-rich e-commerce platform clone, focusing on user experience and team collaboration across various modules.",
-  //   techStack: [reactImage, Redux, Chakra, node, express, mongo],
-  //   responsibilities:
-  //     "Oversaw the development of key pages including home, cart, and checkout.",
-  // },
+  {
+    id: 5,
+    src: "https://user-images.githubusercontent.com/104342116/213980455-c8c6e7a5-3e17-4e40-bee0-0e211a835752.png",
+    github: "https://github.com/Saurav02022/Nykaa-Clone",
+    netlify: "https://nykaaclone.saurav02022.vercel.app/",
+    websiteName: "Nykaa Clone",
+    description:
+      "Led the development of a feature-rich e-commerce platform clone, focusing on user experience and team collaboration across various modules.",
+    techStack: [reactImage, Redux, Chakra, node, express, mongo],
+    responsibilities:
+      "Oversaw the development of key pages including home, cart, and checkout.",
+  },
   {
     id: 6,
     src: myntra,
@@ -147,13 +146,6 @@ const Project = () => {
                     href={github}
                     target="_blank"
                     rel="noreferrer"
-                    onClick={() => {
-                      ReactGA.event({
-                        category: "Projects",
-                        action: "Clicked on the Github button.",
-                        label: websiteName,
-                      });
-                    }}
                   >
                     <FaGithub className="mr-2" />
                     View Code
@@ -163,13 +155,6 @@ const Project = () => {
                     href={netlify}
                     target="_blank"
                     rel="noreferrer"
-                    onClick={() => {
-                      ReactGA.event({
-                        category: "Projects",
-                        action: "Clicked on the Link button.",
-                        label: websiteName,
-                      });
-                    }}
                   >
                     <FaLink className="mr-2" />
                     Live Demo
