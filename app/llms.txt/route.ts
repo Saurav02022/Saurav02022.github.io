@@ -5,9 +5,13 @@ import {
   RESUME_URL,
   ROLE,
   SOCIALS,
+  about,
   cases,
   community,
+  contact,
+  cover,
   experience,
+  toolkit,
 } from '@/lib/portfolio-data';
 import { SITE_URL } from '@/lib/site-config';
 
@@ -47,6 +51,12 @@ function body() {
     })
     .join('\n\n');
 
+  const aboutText = `${line(about.statement)}\n\n${line(about.p1)}\n\n${line(about.p2)}`;
+
+  const toolkitText = toolkit
+    .map((row) => `- **${row.label}** — ${row.tools}. ${line(row.note)}`)
+    .join('\n');
+
   const links = [
     ...SOCIALS.map((s) => `- [${s.label}](${s.url})`),
     `- [Résumé](${RESUME_URL})`,
@@ -61,6 +71,10 @@ function body() {
 Everything below is on ${SITE_URL}. Each project links to its source; nothing here
 claims a metric that isn't in the repo.
 
+${line(cover.support)}
+
+${cover.stats.map((s) => `- **${s.label}**: ${s.value}`).join('\n')}
+
 ## Selected work
 
 ${work}
@@ -73,7 +87,17 @@ ${roles}
 
 ${openSource}
 
+## About
+
+${aboutText}
+
+## Toolkit
+
+${toolkitText}
+
 ## Contact
+
+${line(contact.support)}
 
 ${links}
 `;

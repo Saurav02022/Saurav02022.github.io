@@ -13,6 +13,7 @@ const NAV_BREAKPOINT = 860;
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeId, setActiveId] = useState('top');
+  const [progress, setProgress] = useState(0);
   const menuRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
@@ -24,6 +25,9 @@ export function Navbar() {
         if (el && el.getBoundingClientRect().top <= 160) active = id;
       }
       setActiveId(active);
+
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(max > 0 ? Math.min(100, (window.scrollY / max) * 100) : 0);
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
@@ -90,13 +94,23 @@ export function Navbar() {
           <button
             type="button"
             className="inline-flex min-h-11 cursor-pointer items-center bg-ink px-4 py-2.25 font-mono text-[12px] tracking-[0.14em] text-bg uppercase nav:hidden"
-            aria-label="Open menu"
+            aria-label="Index menu"
             aria-haspopup="dialog"
             onClick={openMenu}
           >
             Index
           </button>
         </nav>
+
+        <div
+          role="progressbar"
+          aria-label="Reading progress"
+          aria-valuenow={Math.round(progress)}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          className="h-[2px] w-full origin-left bg-accent"
+          style={{ transform: `scaleX(${progress / 100})` }}
+        />
       </header>
 
       <dialog

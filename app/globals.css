@@ -25,8 +25,10 @@
   --color-accent-soft: rgba(10, 107, 87, 0.13);
   --color-accent-bright: #71a99e;
   --color-on-accent: #f7f3eb;
-  /* The "Live" status dot — the one green that isn't the brand accent. */
-  --color-live: #2e9e62;
+  /* The "Live" status dot — the one green that isn't the brand accent.
+     Was #2e9e62, 2.96:1 on --bg — under the 3:1 floor for graphical UI
+     objects (WCAG 1.4.11). Darkened to the same hue at 4.46:1. */
+  --color-live: #237d4c;
 
   /* The design's stacks, verbatim. Deliberately NOT next/font's --font-*
      vars: those expand to `"X", "X Fallback"`, and the glyphs this design
@@ -75,6 +77,11 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Reserves the scrollbar's width permanently, so the mobile menu's
+       `body { overflow: hidden }` scroll-lock doesn't change the page's
+       content width — which was forcing a full-page reflow (~420ms under
+       throttled CPU) on every tap of the menu button. */
+    scrollbar-gutter: stable;
   }
 
   body {
