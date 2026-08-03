@@ -1,8 +1,10 @@
 # Saurav Kumar — Portfolio · Design Spec
 
-Single-page, light, typography-led portfolio for a full-stack + AI engineer.
+Single-page, dark, typography-led portfolio for a full-stack + AI engineer.
 Voice is plain-engineer: concrete claims, no hype. The visual system is quiet
-so the writing carries the page.
+so the writing carries the page — one mint accent on a near-black ground, over
+a fixed WebGL scene of four stacked planes (frontend, backend, database,
+deploy) that the camera moves through as you scroll.
 
 Source of truth: `Saurav Kumar Portfolio.dc.html` and this codebase. Both must
 stay in step. Copy lives in `lib/portfolio-data.tsx` — every string on the site
@@ -17,28 +19,40 @@ Declared once in `app/globals.css` under `@theme`, so each one compiles to a
 Tailwind utility as well as a CSS variable. There is no separate Tailwind config
 file — Tailwind v4 reads the CSS.
 
+Token names are the design file's own custom properties, so a rule in the
+`.dc.html` maps 1:1 onto a utility here.
+
 | Token | Value | Utility | Use |
 |---|---|---|---|
-| `--color-bg` | `#F3EFE7` | `bg-bg` | Page ground (warm paper) |
-| `--color-bg2` | `#EAE3D6` | `bg-bg2` | Experience band |
-| `--color-paper` | `#FBF8F1` | `bg-paper` | Figure interiors |
-| `--color-ink` | `#151310` | `text-ink` | Primary text, inverted surfaces |
-| `--color-ink2` | `#3A352D` | `text-ink2` | Leads, case summaries |
-| `--color-muted` | `#6C6558` | `text-muted` | Body / secondary text |
-| `--color-faint` | `#6F695A` | `text-faint` | Meta, dates, captions |
-| `--color-line` | `rgb(21 19 16 / .15)` | `border-line` | Hairline dividers |
-| `--color-line2` | `rgb(21 19 16 / .28)` | `border-line2` | Stronger borders |
-| `--color-accent` | `#0A6B57` | `text-accent` | Teal — the only chromatic colour |
-| `--color-accent-soft` | `rgb(10 107 87 / .13)` | `bg-accent-soft` | Section numbers, gate fills |
-| `--color-accent-bright` | `#71A99E` | `text-accent-bright` | Accent on the ink ground |
-| `--color-on-accent` | `#F7F3EB` | `text-on-accent` | Text on ink; `/NN` for its tints |
-| `--color-live` | `#2E9E62` | `bg-live` | The "Live" status dot only |
+| `--color-void` | `#0A0B0A` | `bg-void` | Page ground |
+| `--color-surface` | `#101210` | `bg-surface` | Reserved lift |
+| `--color-surface2` | `#161916` | `bg-surface2` | Experience / open-source cards, figure steps |
+| `--color-raise` | `#1C201C` | `bg-raise` | The topmost figure step |
+| `--color-pane-a` | `rgb(16 18 16 / .88)` | `bg-pane-a` | Section wash A (Experience, Open source, Toolkit, footer) |
+| `--color-pane-b` | `rgb(10 11 10 / .55)` | `bg-pane-b` | Section wash B (Work, About, Contact) |
+| `--color-text` | `#F2EFE7` | `text-text` | Primary text |
+| `--color-text2` | `#CFCBC0` | `text-text2` | Leads, case summaries |
+| `--color-muted` | `#A6A196` | `text-muted` | Body / secondary text |
+| `--color-faint` | `#8C887D` | `text-faint` | Meta, dates, captions |
+| `--color-line` | `rgb(242 239 231 / .13)` | `border-line` | Hairline dividers |
+| `--color-line2` | `rgb(242 239 231 / .24)` | `border-line2` | Stronger borders |
+| `--color-accent` | `#4FD1A5` | `text-accent` | Mint — the only chromatic colour |
+| `--color-accent-soft` | `rgb(79 209 165 / .12)` | `bg-accent-soft` | Layer-button hover fill |
+| `--color-accent-dim` | `rgb(79 209 165 / .34)` | — | Section-number outline stroke |
+| `--color-accent-ghost` | `rgb(79 209 165 / .08)` | — | Section-number drop shadow |
+| `--color-on-accent` | `#05140F` | `text-on-accent` | Text on an accent fill |
+| `--color-live` | `#4FD1A5` | `bg-live` | The "Live" status dot |
+
+The two `pane` washes are translucent on purpose: they sit over the fixed
+canvas, so the scene reads through B strongly and through A faintly. That
+alternation is what gives the page its depth — do not make them opaque.
 
 Accent is deliberately scarce: eyebrow, section numbers, `<em>` in the cover,
-bullet markers, hover states, `::selection`. Never a large teal fill.
+bullet markers, `dt` labels, hover states, `::selection`. The only large accent
+fills are the cover's primary button and the highlighted figure step.
 
-`--color-faint` is pinned to the lightest value that still clears WCAG AA
-(4.8:1 on `--color-bg`) — it carries 11px metadata, so it cannot go lighter.
+Section numbers are an **outline**, not a fill: transparent text with a 1px
+`--color-accent-dim` stroke plus two offset `--color-accent-ghost` shadows.
 
 ### Type
 - **Display** — Syne 600/700/800 (`font-display`): brand mark, cover title,
@@ -61,11 +75,36 @@ section title `clamp(38px,6vw,78px)`. `text-balance` on headlines, `text-pretty`
 on paragraphs and bullets. Prose measures are capped in `ch`.
 
 ### Layout & spacing
-- `WRAP` (`lib/styles.ts`) — `max-w-wrap` (1360px) with the fluid `px-gutter`
+- `WRAP` (`lib/styles.ts`) — `max-w-wrap` (1080px) with the fluid `px-gutter`
   (`clamp(20px,5vw,56px)`). The page's only measure.
 - `<Section>` (`components/layout/Section.tsx`) — `py-sec`
-  (`clamp(78px,10vw,140px)`), `scroll-mt-19` so anchors clear the fixed nav, and
-  the optional vertical rail label.
+  (`clamp(78px,10vw,144px)`), `scroll-mt-19` so anchors clear the fixed nav, and
+  the `pane` wash (`a` or `b`).
+
+### The rail rule
+**Every section is a narrow rail plus a prose column**, split at the `nav`
+breakpoint (900px) and stacked below it:
+
+```
+grid gap-y-6 nav:grid-cols-[var(--container-rail)_minmax(0,1fr)]
+             nav:gap-x-[clamp(28px,4vw,56px)]
+```
+
+The rail (`--container-rail`, 240px) carries the metadata — dates, role,
+location, tags, labels. The right column carries the running prose, capped at
+`--container-col` (74ch).
+
+This exists because prose alone cannot fill a wide row. 74ch is the top of the
+comfortable reading range, so a single column stops at roughly 690px and
+everything to its right stands empty — which reads as a bug inside a bordered
+card. Two columns fill the row without lengthening a single line.
+
+The container is 1080px, not the design file's 1400px, for the same reason:
+240 (rail) + 56 (gap) + 690 (prose) + card padding lands near 1080. A wider
+container only re-opens the gap it was meant to close.
+
+Work is the original of this pattern — its figure is just a wide rail. If a new
+section cannot fill the row, give it a rail; do not widen the prose.
 
 ---
 
@@ -85,9 +124,10 @@ six numbered sections with a mono stats block. Staggered `rise` on entry.
 **Marquee** — ink band, mono uppercase, two identical strips scrolled -50%.
 `aria-hidden` — it is decoration, and its content is stated elsewhere on the page.
 
-**Section head** — oversized ghost number in `accent-soft`, then the title, with
-the intro baseline-aligned into the same row where a section has one. Without an
-intro the title carries the pull-up onto the number instead.
+**Section head** — oversized ghost number, then the title, then the intro
+beneath it. The number is an outline, not a fill: transparent text with a 1px
+`accent-dim` stroke and two offset `accent-ghost` shadows. The title pulls up
+onto the number with a negative top margin.
 
 **Work / case study** — six features, one identical card, sorted by how much
 verifiable engineering each repo holds. Per card: mono meta row over a rule
@@ -98,13 +138,15 @@ data — the highlighted step (the one with a `note`) is the point of the
 mechanism. Fig numbers derive from list position. Facts are a `<dl>` of
 Role / Challenge / Key decision / Outcome.
 
-**Experience** — two-column row (mono dates + company | prose), 2px ink rules
-top and bottom, dash-marker bullets, mono tag pills. `<b>` in the copy is a
-weight shift, never colour.
+**Experience** — a `surface2` card on a hairline border. Inside it, the rail
+rule: dates, role, location and tag pills in the 240px left column behind a
+`border-r`; company, sub-line, summary and `/`-marker bullets in the prose
+column. `<b>` in the copy is a weight shift plus the brighter text tier, never
+colour.
 
-**Open source** — the Experience row reused verbatim: same two-column split, same
-2px rules, same tag pills. This is work, and reading it in the same frame as the
-jobs is the point. Two rows, reverse-chronological like Experience, so the arc
+**Open source** — the Experience card reused verbatim: same rail, same border,
+same tag pills. This is work, and reading it in the same frame as the jobs is
+the point. Two rows, reverse-chronological like Experience, so the arc
 (contributor in the winter cohort, mentor in the summer one) lands without being
 narrated. Projects are `/`-marker rows carrying a stat, a one-clause description
 of the project, then what was actually done — and a row only carries a number

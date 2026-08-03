@@ -3,36 +3,43 @@
 /* ---------------------------------------------------------------------------
  * Design tokens — source of truth: "Saurav Kumar Portfolio.dc.html"
  *
- * Declared in @theme rather than :root so each one also compiles to a utility:
- * --color-ink → bg-ink/text-ink/border-ink, --spacing-sec → py-sec,
- * --animate-rise → animate-rise, --breakpoint-nav → nav:flex.
+ * Names and values are the design's own custom properties, verbatim, so a
+ * style in the .dc.html maps 1:1 onto a utility here. Declared in @theme
+ * rather than :root so each also compiles to a utility:
+ * --color-void → bg-void, --spacing-sec → py-sec, --animate-rise → animate-rise.
  * ------------------------------------------------------------------------- */
 @theme {
-  --color-bg: #f3efe7;
-  --color-bg2: #eae3d6;
-  --color-paper: #fbf8f1;
-  --color-ink: #151310;
-  --color-ink2: #3a352d;
-  --color-muted: #6c6558;
-  /* Was #948c7c, which sat at 2.9:1 on --bg and failed WCAG AA for the 11px
-     metadata it carries (rail labels, dates, captions). Darkened to the
-     lightest value that clears 4.5:1 (now 4.8:1), so the tier stays quieter
-     than --ink2 without being unreadable. */
-  --color-faint: #6f695a;
-  --color-line: rgba(21, 19, 16, 0.15);
-  --color-line2: rgba(21, 19, 16, 0.28);
-  --color-accent: #0a6b57;
-  --color-accent-soft: rgba(10, 107, 87, 0.13);
-  --color-accent-bright: #71a99e;
-  --color-on-accent: #f7f3eb;
-  /* The "Live" status dot — the one green that isn't the brand accent.
-     Was #2e9e62, 2.96:1 on --bg — under the 3:1 floor for graphical UI
-     objects (WCAG 1.4.11). Darkened to the same hue at 4.46:1. */
-  --color-live: #237d4c;
+  /* Grounds */
+  --color-void: #0a0b0a;
+  --color-surface: #101210;
+  --color-surface2: #161916;
+  --color-raise: #1c201c;
+  /* The two alternating section washes, laid over the fixed WebGL canvas —
+     they are deliberately translucent so the scene reads through them. */
+  --color-pane-a: rgba(16, 18, 16, 0.88);
+  --color-pane-b: rgba(10, 11, 10, 0.55);
+
+  /* Text tiers */
+  --color-text: #f2efe7;
+  --color-text2: #cfcbc0;
+  --color-muted: #a6a196;
+  --color-faint: #8c887d;
+
+  /* Rules */
+  --color-line: rgba(242, 239, 231, 0.13);
+  --color-line2: rgba(242, 239, 231, 0.24);
+
+  /* Accent — the only chromatic colour on the page */
+  --color-accent: #4fd1a5;
+  --color-accent-soft: rgba(79, 209, 165, 0.12);
+  --color-accent-dim: rgba(79, 209, 165, 0.34);
+  --color-accent-ghost: rgba(79, 209, 165, 0.08);
+  --color-on-accent: #05140f;
+  --color-live: #4fd1a5;
 
   /* The design's stacks, verbatim. Deliberately NOT next/font's --font-*
      vars: those expand to `"X", "X Fallback"`, and the glyphs this design
-     leans on (→ ↗ ✳) sit outside the latin subset, so they'd resolve to
+     leans on (→ ↗ ◆ ✳) sit outside the latin subset, so they'd resolve to
      Next's proportional metric-fallback instead of a real mono/sans face —
      the flow arrows rendered 27px wide instead of 12px. The @font-face rules
      still come from next/font via the .variable classes on <html>. */
@@ -40,20 +47,32 @@
   --font-sans: "Instrument Sans", system-ui, sans-serif;
   --font-mono: "Space Mono", monospace;
 
-  --container-wrap: 1360px;
+  /* Every section is a metadata rail plus a prose column. That pair lands at
+     roughly 1080px, so the page is capped there rather than at the design's
+     1400px — at 1400 a single prose column can only reach its reading measure
+     and the rest of the row stands empty. */
+  --container-wrap: 1080px;
+  /* The reading measure. 74ch is the top of the comfortable range; prose never
+     exceeds it no matter how wide its column gets. */
+  --container-col: min(100%, 74ch);
+  /* The left rail: dates, role, labels. Collapses above the prose below `nav`. */
+  --container-rail: 240px;
+  /* The cover headline block — a hero, not a reading column. */
+  --container-card: min(100%, 860px);
   --spacing-gutter: clamp(20px, 5vw, 56px);
-  --spacing-sec: clamp(78px, 10vw, 140px);
+  --spacing-sec: clamp(78px, 10vw, 144px);
 
-  /* Where the nav swaps to the hamburger and the rail labels drop out. */
-  --breakpoint-nav: 860px;
+  /* Where the nav swaps to the hamburger — matches the design's
+     `window.innerWidth < 900` narrow test, so JS and CSS agree. */
+  --breakpoint-nav: 900px;
 
   --animate-rise: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
-  --animate-marquee: marquee 34s linear infinite;
+  --animate-marquee: marq 36s linear infinite;
 
   @keyframes rise {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translate3d(0, 22px, -40px);
     }
     to {
       opacity: 1;
@@ -61,7 +80,7 @@
     }
   }
 
-  @keyframes marquee {
+  @keyframes marq {
     from {
       transform: translateX(0);
     }
@@ -79,14 +98,15 @@
     scroll-behavior: smooth;
     /* Reserves the scrollbar's width permanently, so the mobile menu's
        `body { overflow: hidden }` scroll-lock doesn't change the page's
-       content width — which was forcing a full-page reflow (~420ms under
-       throttled CPU) on every tap of the menu button. */
+       content width — which was forcing a full-page reflow on every tap. */
     scrollbar-gutter: stable;
   }
 
   body {
-    background: var(--color-bg);
-    color: var(--color-ink);
+    margin: 0;
+    background: var(--color-void);
+    color: var(--color-text);
+    font-family: var(--font-sans);
     font-size: 17px;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -103,9 +123,58 @@
   /* One ring for every interactive element, so a new link or button can't ship
      without a visible focus state. */
   a:focus-visible,
-  button:focus-visible {
+  button:focus-visible,
+  [tabindex]:focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 3px;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Hover treatments the design drives from JS. They are pure state changes with
+ * no measurement behind them, so CSS does it without the listeners.
+ * ------------------------------------------------------------------------- */
+@layer components {
+  /* Experience and Open-source cards. */
+  [data-lift]:hover {
+    transform: translateY(-3px);
+    border-color: rgba(79, 209, 165, 0.4);
+    box-shadow: 0 22px 50px rgba(0, 0, 0, 0.45);
+  }
+
+  /* Toolkit rows: the accent edge slides in and the row steps right. */
+  [data-row]:hover {
+    background: rgba(79, 209, 165, 0.05);
+    border-left-color: var(--color-accent);
+    /* A constant 8px step. A fixed 26px would shrink the gesture as the
+       viewport grows, since the row's own padding is fluid. */
+    padding-left: calc(clamp(12px, 1.4vw, 18px) + 8px);
+  }
+
+  /* The mobile menu. showModal() toggles `display`, which is normally not
+     animatable — allow-discrete plus @starting-style is what lets it fade
+     both ways instead of snapping. Without this the menu is the one abrupt
+     moment on an otherwise eased page. */
+  dialog {
+    opacity: 0;
+    translate: 0 -8px;
+    transition:
+      opacity 0.28s ease,
+      translate 0.28s ease,
+      overlay 0.28s ease allow-discrete,
+      display 0.28s ease allow-discrete;
+  }
+
+  dialog[open] {
+    opacity: 1;
+    translate: 0 0;
+  }
+
+  @starting-style {
+    dialog[open] {
+      opacity: 0;
+      translate: 0 -8px;
+    }
   }
 }
 
