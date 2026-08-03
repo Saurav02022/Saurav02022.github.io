@@ -1,6 +1,8 @@
 import type { MetadataRoute } from 'next';
 import { SITE_URL } from '@/lib/site-config';
 
+export const dynamic = 'force-static';
+
 /**
  * Single canonical URL for this SPA-style portfolio.
  * lastModified is bumped by hand on real content changes — a fresh

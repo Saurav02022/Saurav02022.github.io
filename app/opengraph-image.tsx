@@ -7,6 +7,7 @@ import { BRAND, brandFont } from '@/lib/brand';
  * derives og:image, its width/height and og:image:alt from the exports below.
  */
 
+export const dynamic = 'force-static';
 export const alt =
   'Saurav Kumar — Full-Stack + AI Engineer. Full-stack products and AI features that survive weak networks, flaky devices, and async vendor APIs.';
 export const size = { width: 1200, height: 630 };
