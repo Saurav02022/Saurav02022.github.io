@@ -1,42 +1,56 @@
 import { Section } from '@/components/layout/Section';
 import { LANGUAGES, toolkit, toolkitIntro } from '@/lib/portfolio-data';
+import { RAIL_GRID, RAIL_LABEL } from '@/lib/styles';
+import { cn } from '@/lib/utils';
 import { SectionHead } from './SectionHead';
+
+/**
+ * `data-row` is the hook the design's hover rule hangs on: the transparent
+ * left border is what turns accent and pushes the row across on hover.
+ *
+ * `gap-y-3` overrides the rail gutter: stacked, a label sits right on top of
+ * its own tools, so the section's usual gap would read as a row break.
+ */
+const ROW = cn(
+  RAIL_GRID,
+  'gap-y-3 border-t border-line border-l-2 border-l-transparent',
+  'px-[clamp(12px,1.4vw,18px)] py-[clamp(20px,2.4vw,28px)]',
+  'transition-[background,border-left-color,padding-left] duration-300'
+);
 
 export function Toolkit() {
   return (
-    <Section id="toolkit" labelledBy="tk-h" className="border-t-[1.5px] border-ink bg-ink text-bg">
+    <Section id="toolkit" labelledBy="tk-h" pane="a">
       <SectionHead
         num="05"
         title="Toolkit"
         id="tk-h"
         intro={toolkitIntro}
-        className="mb-[clamp(40px,5vw,68px)]"
-        introClassName="max-w-[44ch]"
-        onDark
+        className="mb-[clamp(36px,4.4vw,60px)]"
       />
 
       <div className="flex flex-col">
         {toolkit.map((row, i) => (
           <div
             key={row.num}
-            className="flex flex-wrap gap-x-10 gap-y-4 border-t border-on-accent/20 py-[clamp(22px,2.6vw,30px)] last-of-type:border-b"
+            className={cn(ROW, i === toolkit.length - 1 && 'border-b border-b-line')}
+            data-row="1"
             data-reveal={String(i)}
           >
-            <div className="flex-[1_1_240px]">
-              <span className="font-mono text-[11.5px] tracking-[0.12em] text-accent-bright uppercase">
-                {row.num} — {row.label}
-              </span>
-            </div>
-            <div className="flex-[2_1_380px]">
-              <p className="mb-2.5 font-display text-[clamp(18px,1.9vw,23px)] font-semibold">
+            {/* Toolkit is the one inverted section — its rail label is accent, not faint. */}
+            <span className={cn(RAIL_LABEL, 'text-accent nav:pt-1.5')}>
+              {row.num} — {row.label}
+            </span>
+            <div>
+              <p className="mb-2 font-display text-[clamp(18px,1.9vw,23px)] font-semibold text-text">
                 {row.tools}
               </p>
-              <p className="text-[15.5px] text-on-accent/62 text-pretty">{row.note}</p>
+              <p className="max-w-col text-[15.5px] text-muted text-pretty">{row.note}</p>
             </div>
           </div>
         ))}
-        <p className="mt-6.5 font-mono text-[12px] tracking-[0.08em] text-on-accent/50">
-          <span className="text-accent-bright">LANGUAGES —</span> {LANGUAGES}
+        <p className="mt-6.5 max-w-col font-mono text-[12px] tracking-[0.08em] text-muted">
+          <span className="text-accent">LANGUAGES —</span> {LANGUAGES}
         </p>
       </div>
     </Section>

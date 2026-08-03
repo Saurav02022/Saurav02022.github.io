@@ -1,38 +1,61 @@
-import { Fragment } from 'react';
 import { TagList } from '@/components/Tag';
 import { Section } from '@/components/layout/Section';
 import { cases, workIntro } from '@/lib/portfolio-data';
-import type { CaseFact, CaseStudy } from '@/lib/types';
+import type { CaseFact, CaseFigureStep, CaseStudy } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import { SectionHead } from './SectionHead';
 
 const CASE_LINK =
-  'inline-flex items-center gap-2 border-b-2 border-accent pb-0.75 font-mono text-[12.5px] font-bold tracking-[0.06em] uppercase transition-colors duration-200 hover:text-accent';
-const CASE_LINK_SECONDARY = 'border-line text-muted hover:text-ink';
-
-const FIG = 'border-[1.5px] border-ink bg-paper';
-const FIG_CAP =
-  'mb-5 flex justify-between font-mono text-[10.5px] tracking-[0.16em] text-faint uppercase';
-const FIG_STEP = 'border border-line2 bg-bg font-mono text-[12px] text-ink2';
+  // min-h-11: these are the primary call to action on every card, so they get
+  // the same 44px target the Contact rows already have.
+  'inline-flex min-h-11 items-center gap-2 border-b pb-0.75 font-mono text-[12.5px] font-bold tracking-[0.06em] uppercase no-underline';
+const CASE_LINK_ACCENT = 'border-accent text-accent hover:border-text hover:text-text';
+/** Second link on a card sits back, and keeps its rule colour on hover. */
+const CASE_LINK_MUTED = 'border-line2 text-muted hover:text-text';
 
 /** Design assigns each fact row its own weight; muted is the default. */
 const FACT_TONE = {
-  plain: 'text-ink2 text-wrap',
-  strong: 'text-ink',
+  plain: 'text-text2',
+  strong: 'text-text text-pretty',
 } as const;
 
-function Facts({ facts, className }: { facts: CaseFact[]; className?: string }) {
+const STEP = 'py-3.75 px-4 font-mono text-[12px] tracking-[0.03em]';
+
+/**
+ * Each step sits 24px further forward than the one above it.
+ *
+ * Only from `nav` up: under perspective, translateZ(78px) renders the top step
+ * ~6% wider than its column, and on a narrow screen the figure already fills
+ * the width — so the overhang was being clipped by the page's overflow-x
+ * rather than reflowing. The stack is a wide-viewport effect anyway.
+ */
+const STEP_Z = [
+  'nav:transform-[translateZ(6px)]',
+  'nav:transform-[translateZ(30px)]',
+  'nav:transform-[translateZ(54px)]',
+  'nav:transform-[translateZ(78px)]',
+];
+
+/** The stack's shadow deepens with the step's distance off the page. */
+const STEP_SHADOW = [
+  'shadow-[0_6px_18px_rgba(0,0,0,.4)]',
+  'shadow-[0_14px_34px_rgba(0,0,0,.5)]',
+  'shadow-[0_18px_40px_rgba(0,0,0,.5)]',
+  'shadow-[0_24px_50px_rgba(0,0,0,.55)]',
+];
+
+function Facts({ facts }: { facts: CaseFact[] }) {
   return (
-    <dl className={cn('grid max-w-[52ch] gap-5', className)}>
+    <dl className="grid max-w-[52ch] gap-5">
       {facts.map((f) => (
         <div key={f.label} className="flex flex-wrap gap-4.5">
-          <dt className="flex-[0_0_118px] pt-0.5 font-mono text-[11px] tracking-[0.1em] text-accent uppercase">
+          <dt className="flex-[0_0_118px] pt-0.5 font-mono text-[11px] tracking-widest text-accent uppercase">
             {f.label}
           </dt>
           <dd
             className={cn(
-              'flex-[1_1_240px] text-[15.5px] text-muted text-pretty',
-              f.tone && FACT_TONE[f.tone]
+              'm-0 flex-[1_1_240px] text-[15.5px]',
+              f.tone ? FACT_TONE[f.tone] : 'text-muted text-pretty',
             )}
           >
             {f.text}
@@ -43,39 +66,76 @@ function Facts({ facts, className }: { facts: CaseFact[]; className?: string }) 
   );
 }
 
-function CaseMeta({ study }: { study: CaseStudy }) {
+function Step({ step, index, last }: { step: CaseFigureStep; index: number; last: boolean }) {
+  if (step.note) {
+    return (
+      <div
+        data-fade={String(index)}
+        className={cn(
+          'px-4 py-3.75 border border-accent',
+          'bg-[linear-gradient(180deg,rgba(79,209,165,.14),rgba(79,209,165,.05))]',
+          'shadow-[0_14px_34px_rgba(0,0,0,.5),0_0_24px_rgba(79,209,165,.16)]',
+          STEP_Z[index],
+        )}
+      >
+        <div className="font-mono text-[12px] font-bold tracking-[0.03em] text-text">
+          <span className="text-accent">{step.n} </span>
+          {step.text}
+        </div>
+        <div className="mt-1.5 font-mono text-[11px] text-text2">{step.note}</div>
+      </div>
+    );
+  }
+
   return (
-    <div className="flex flex-wrap items-baseline gap-x-4.5 gap-y-2 border-b-[1.5px] border-ink pb-4.5 font-mono text-[12px] tracking-[0.1em] text-muted uppercase">
-      <span className="font-bold text-accent">{study.feature}</span>
-      <span>{study.kind}</span>
-      {study.live && (
-        <span className="inline-flex items-center gap-1.5 text-ink2 before:size-1.75 before:bg-live before:content-['']">
-          Live
-        </span>
+    <div
+      data-fade={String(index)}
+      className={cn(
+        STEP,
+        'border border-line2 text-text2',
+        last ? 'bg-raise' : 'bg-surface2',
+        STEP_SHADOW[index],
+        STEP_Z[index],
       )}
-      <span className="ml-auto text-faint">{study.year}</span>
+    >
+      <span className="text-faint">{step.n} </span>
+      {step.text}
     </div>
   );
 }
 
 /** One case card — every feature uses this identical layout. */
-function Case({ study, index }: { study: CaseStudy; index: number }) {
+function Case({ study, index, last }: { study: CaseStudy; index: number; last: boolean }) {
   return (
-    <article className={index < cases.length - 1 ? 'mb-[clamp(64px,9vw,120px)]' : undefined}>
-      <CaseMeta study={study} />
+    <article data-reveal="0" className={last ? undefined : 'mb-[clamp(60px,8vw,110px)]'}>
+      <div className="flex flex-wrap items-baseline gap-x-4.5 gap-y-2 border-b border-line2 pb-4.5 font-mono text-[12px] tracking-widest text-muted uppercase">
+        <span className="font-bold text-accent">{study.feature}</span>
+        <span>{study.kind}</span>
+        {study.live && (
+          <span className="inline-flex items-center gap-1.5 text-text2">
+            <span
+              aria-hidden="true"
+              className="h-[7px] w-[7px] rounded-full bg-live shadow-[0_0_8px_var(--color-live)]"
+            />
+            Live
+          </span>
+        )}
+        <span className="ml-auto text-faint">{study.year}</span>
+      </div>
+
       <div className="flex flex-wrap gap-[clamp(28px,4vw,60px)] pt-[clamp(26px,3vw,40px)]">
-        <div className="order-2 min-w-[min(100%,280px)] flex-[1_1_300px]">
-          <h3 className="mb-4.5 font-display text-[clamp(30px,4.4vw,52px)] leading-[0.98] font-bold tracking-[-0.03em] text-balance">
+        <div className="order-2 min-w-[min(100%,280px)] flex-[1_1_320px]">
+          <h3 className="mb-4.5 font-display text-[clamp(30px,4.4vw,52px)] leading-[0.98] font-bold tracking-[-0.03em] text-text">
             {study.title}
           </h3>
-          <p className="mb-[clamp(24px,3vw,34px)] max-w-[46ch] text-[clamp(16px,1.5vw,19px)] text-ink2 text-pretty">
+          <p className="mb-[clamp(24px,3vw,34px)] max-w-[46ch] text-[clamp(16px,1.5vw,19px)] text-text2 text-pretty">
             {study.summary}
           </p>
           <Facts facts={study.facts} />
           <div className="mt-7 flex flex-wrap gap-5">
             {study.liveUrl && (
               <a
-                className={CASE_LINK}
+                className={cn(CASE_LINK, CASE_LINK_ACCENT)}
                 href={study.liveUrl}
                 target="_blank"
                 rel="noopener"
@@ -86,7 +146,7 @@ function Case({ study, index }: { study: CaseStudy; index: number }) {
             )}
             {study.repoUrl && (
               <a
-                className={cn(CASE_LINK, study.liveUrl && CASE_LINK_SECONDARY)}
+                className={cn(CASE_LINK, study.liveUrl ? CASE_LINK_MUTED : CASE_LINK_ACCENT)}
                 href={study.repoUrl}
                 target="_blank"
                 rel="noopener"
@@ -98,43 +158,26 @@ function Case({ study, index }: { study: CaseStudy; index: number }) {
           </div>
         </div>
 
-        <div className="order-1 min-w-[min(100%,300px)] flex-[1_1_380px]">
-          <figure className={cn(FIG, 'p-[clamp(22px,2.6vw,34px)]')} data-reveal="0">
-            <figcaption className={FIG_CAP}>
-              <span>
+        <div className="order-1 min-w-[min(100%,300px)] flex-[1_1_380px] perspective-[1400px]">
+          <figure
+            data-tilt="1"
+            className="m-0 transform-3d transform-[rotateX(11deg)_rotateY(-13deg)] transition-transform duration-500 ease-[cubic-bezier(.2,.7,.2,1)]"
+          >
+            <figcaption className="mb-4.5 flex flex-wrap justify-between gap-1.5 font-mono text-[10.5px] tracking-[0.16em] text-faint uppercase">
+              <span className="text-accent">
                 Fig.{String(index + 1).padStart(2, '0')} — {study.fig.caption}
               </span>
               <span>{study.fig.sub}</span>
             </figcaption>
-            {/* Steps and connectors are flat siblings so the column gap
-                falls between every one of them, as in the design. */}
-            <div className="flex flex-col gap-2.25">
+            <div className="flex flex-col gap-2.75 transform-3d">
               {study.fig.steps.map((step, i) => (
-                <Fragment key={step.n}>
-                  {i > 0 && <div className="ml-5.5 h-3.5 w-px bg-line2" aria-hidden="true" />}
-                  {step.note ? (
-                    <div
-                      className={cn(
-                        FIG_STEP,
-                        'border-[1.5px] border-accent bg-accent-soft px-3.75 py-3.5'
-                      )}
-                    >
-                      <div className="font-bold tracking-[0.03em] text-ink">
-                        <span className="text-accent">{step.n} </span>
-                        {step.text}
-                      </div>
-                      <div className="mt-1.5 text-[11px] text-muted">{step.note}</div>
-                    </div>
-                  ) : (
-                    <div className={cn(FIG_STEP, 'px-3.75 py-3.5 tracking-[0.03em]')}>
-                      <span className="text-faint">{step.n} </span>
-                      {step.text}
-                    </div>
-                  )}
-                </Fragment>
+                <Step key={step.n} step={step} index={i} last={i === study.fig.steps.length - 1} />
               ))}
             </div>
-            <TagList tags={study.tags} className="mt-5 border-t border-line pt-4" />
+            <TagList
+              tags={study.tags}
+              className="mt-5.5 border-t border-line pt-4 transform-[translateZ(20px)]"
+            />
           </figure>
         </div>
       </div>
@@ -144,16 +187,17 @@ function Case({ study, index }: { study: CaseStudy; index: number }) {
 
 export function Work() {
   return (
-    <Section id="work" labelledBy="work-h" rail="Selected Work — 2025/26">
+    <Section id="work" labelledBy="work-h" pane="b" className="relative">
       <SectionHead
         num="02"
         title="Selected Work"
         id="work-h"
         intro={workIntro}
         className="mb-[clamp(40px,6vw,72px)]"
+        introClassName="max-w-[60ch]"
       />
       {cases.map((study, i) => (
-        <Case key={study.title} study={study} index={i} />
+        <Case key={study.title} study={study} index={i} last={i === cases.length - 1} />
       ))}
     </Section>
   );

@@ -1,18 +1,19 @@
-import { Fragment } from 'react';
 import { TagList } from '@/components/Tag';
 import { Section } from '@/components/layout/Section';
 import { community, communityIntro } from '@/lib/portfolio-data';
+import { BULLET_MARK, BULLET_ROW, CARD_BULLETS, CARD_TITLE, RAIL_GRID } from '@/lib/styles';
 import type { CommunityProject } from '@/lib/types';
+import { cn } from '@/lib/utils';
 import { SectionHead } from './SectionHead';
 
 /**
- * Mirrors the Experience row deliberately — this is work, and it should read
+ * Mirrors the Experience card deliberately — this is work, and it should read
  * with the same weight rather than as a footnote.
  */
 function Project({ project }: { project: CommunityProject }) {
   const heading = project.url ? (
     <a
-      className="font-semibold text-ink underline decoration-accent decoration-2 underline-offset-4 transition-colors duration-200 hover:text-accent"
+      className="font-semibold text-accent underline decoration-1 underline-offset-4 transition-colors duration-200 hover:text-text"
       href={project.url}
       target="_blank"
       rel="noopener"
@@ -21,12 +22,12 @@ function Project({ project }: { project: CommunityProject }) {
       {project.name} <span aria-hidden="true">↗</span>
     </a>
   ) : (
-    <b className="font-semibold text-ink">{project.name}</b>
+    <b className="font-semibold text-text">{project.name}</b>
   );
 
   return (
-    <li className="flex gap-3.5 text-[15.5px] text-muted text-pretty">
-      <span className="flex-none pt-0.5 font-mono font-bold text-accent" aria-hidden="true">
+    <li className={BULLET_ROW}>
+      <span className={BULLET_MARK} aria-hidden="true">
         /
       </span>
       <span>
@@ -37,7 +38,7 @@ function Project({ project }: { project: CommunityProject }) {
           </span>
         )}
         {project.blurb && <span className="mt-1 block">{project.blurb}</span>}
-        {project.did && <span className="mt-1 block text-ink2">{project.did}</span>}
+        {project.did && <span className="mt-1 block text-text2">{project.did}</span>}
       </span>
     </li>
   );
@@ -45,7 +46,7 @@ function Project({ project }: { project: CommunityProject }) {
 
 export function Community() {
   return (
-    <Section id="open-source" labelledBy="os-h" rail="Open Source — 2026">
+    <Section id="open-source" labelledBy="os-h" pane="a">
       <SectionHead
         num="03"
         title="Open source"
@@ -54,44 +55,46 @@ export function Community() {
         className="mb-[clamp(40px,5vw,68px)]"
       />
 
-      {community.map((entry, i) => (
-        <div
-          key={entry.org}
-          className="flex flex-wrap gap-[clamp(22px,4vw,64px)] border-t-2 border-ink py-[clamp(30px,3.5vw,44px)] last:border-b-2"
-          data-reveal={i}
-        >
-          <div className="min-w-[min(100%,230px)] flex-[1_1_250px]">
-            <p className="mb-4 font-mono text-[12px] font-bold tracking-[0.08em] text-accent">
-              {entry.dates}
-            </p>
-            <h3 className="mb-1.5 font-display text-[clamp(24px,3.2vw,36px)] leading-[1.05] font-bold tracking-[-0.025em] text-balance">
-              {entry.org}
-            </h3>
-            <p className="font-mono text-[11.5px] leading-[1.7] text-muted">
-              {entry.meta.map((metaLine, j) => (
-                <Fragment key={metaLine}>
-                  {j > 0 && <br />}
-                  {metaLine}
-                </Fragment>
-              ))}
-            </p>
-          </div>
+      {community.map((entry, i) => {
+        const [entryRole, ...rest] = entry.meta;
 
-          <div className="min-w-[min(100%,300px)] flex-[1_1_440px]">
-            <p className="mb-6 max-w-[58ch] text-[clamp(16px,1.5vw,18.5px)] text-ink2 text-pretty">
-              {entry.summary}
-            </p>
+        return (
+          <article
+            key={entry.org}
+            data-reveal={String(i)}
+            data-lift="1"
+            className={cn(
+              RAIL_GRID,
+              'mb-[clamp(20px,2.4vw,28px)] rounded-[3px] border border-line bg-surface2 p-[clamp(26px,3.2vw,44px)] transition-[border-color,transform,box-shadow] duration-300 last:mb-0'
+            )}
+          >
+            <div className="space-y-2 nav:border-r nav:border-line nav:pr-[clamp(20px,2.5vw,32px)]">
+              <div className="font-mono text-[12px] font-bold tracking-[0.08em] text-accent">
+                {entry.dates}
+              </div>
+              <div className="font-mono text-[11.5px] tracking-[0.06em] text-muted uppercase">
+                {entryRole}
+              </div>
+              <div className="font-mono text-[11.5px] text-faint">{rest.join(' · ')}</div>
+              <TagList tags={entry.tags} className="mt-6" />
+            </div>
 
-            <ul className="mb-6 grid max-w-[58ch] gap-5">
-              {entry.projects.map((project) => (
-                <Project key={project.name} project={project} />
-              ))}
-            </ul>
+            <div>
+              <h3 className={CARD_TITLE}>{entry.org}</h3>
 
-            <TagList tags={entry.tags} tagClassName="border-line2" />
-          </div>
-        </div>
-      ))}
+              <p className="mb-[22px] max-w-col text-[clamp(16px,1.5vw,18.5px)] text-text2 text-pretty">
+                {entry.summary}
+              </p>
+
+              <ul className={CARD_BULLETS}>
+                {entry.projects.map((project) => (
+                  <Project key={project.name} project={project} />
+                ))}
+              </ul>
+            </div>
+          </article>
+        );
+      })}
     </Section>
   );
 }

@@ -14,22 +14,11 @@ export function Tag({ children, className }: { children: string; className?: str
   );
 }
 
-export function TagList({
-  tags,
-  className,
-  tagClassName,
-}: {
-  tags: string[];
-  className?: string;
-  /** Experience sits on --bg2, where the tag border needs the stronger line. */
-  tagClassName?: string;
-}) {
+export function TagList({ tags, className }: { tags: string[]; className?: string }) {
   return (
     <div className={cn('flex flex-wrap gap-1.75', className)}>
       {tags.map((tag) => (
-        <Tag key={tag} className={tagClassName}>
-          {tag}
-        </Tag>
+        <Tag key={tag}>{tag}</Tag>
       ))}
     </div>
   );

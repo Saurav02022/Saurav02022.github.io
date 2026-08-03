@@ -1,69 +1,74 @@
-import { Fragment } from 'react';
 import { TagList } from '@/components/Tag';
 import { Section } from '@/components/layout/Section';
 import { experience, experienceIntro } from '@/lib/portfolio-data';
+import { BULLET_MARK, BULLET_ROW, CARD_BULLETS, CARD_TITLE, RAIL_GRID } from '@/lib/styles';
+import { cn } from '@/lib/utils';
 import { SectionHead } from './SectionHead';
 
-/** <b> in the copy is a weight shift, not a colour one — see lib/portfolio-data. */
-const BOLD_IN_PROSE = '[&_b]:font-semibold [&_b]:text-ink';
+/** <b> in the copy is a weight shift plus the brighter text tier — see lib/portfolio-data. */
+const BOLD_IN_PROSE = '[&_b]:font-semibold [&_b]:text-text';
 
 export function Experience() {
   return (
-    <Section id="experience" labelledBy="exp-h" className="border-y-[1.5px] border-ink bg-bg2">
+    <Section id="experience" labelledBy="exp-h" pane="a">
       <SectionHead
         num="01"
         title="Experience"
         id="exp-h"
         intro={experienceIntro}
-        className="mb-[clamp(44px,6vw,76px)]"
-        introClassName="max-w-[40ch]"
+        className="mb-[clamp(40px,5vw,68px)]"
       />
 
-      {experience.map((role, i) => (
-        <div
-          key={role.company}
-          className="flex flex-wrap gap-[clamp(22px,4vw,64px)] border-t-2 border-ink py-[clamp(30px,3.5vw,44px)] last:border-b-2"
-          data-reveal={String(i)}
-        >
-          <div className="min-w-[min(100%,230px)] flex-[1_1_250px]">
-            <p className="mb-4 font-mono text-[12px] font-bold tracking-[0.08em] text-accent">
-              {role.dates}
-            </p>
-            <h3 className="mb-1.5 font-display text-[clamp(26px,3.4vw,40px)] leading-none font-bold tracking-[-0.025em]">
-              {role.company}
-            </h3>
-            <p className="font-mono text-[11.5px] leading-[1.7] text-muted">
-              {role.meta.map((line, j) => (
-                <Fragment key={line}>
-                  {j > 0 && <br />}
-                  {line}
-                </Fragment>
-              ))}
-            </p>
-          </div>
+      {experience.map((role, i) => {
+        const [roleTitle, subLine, location] = role.meta;
 
-          <div className="min-w-[min(100%,300px)] flex-[1_1_440px]">
-            <p
-              className={`mb-5.5 text-[clamp(16px,1.5vw,18.5px)] text-ink2 text-pretty ${BOLD_IN_PROSE}`}
-            >
-              {role.summary}
-            </p>
-            <ul className={`mb-6 grid gap-4 ${BOLD_IN_PROSE}`}>
-              {/* The marker is a real element, not ::before — generated
-                  content gets announced as "slash" on every bullet. */}
-              {role.bullets.map((bullet, j) => (
-                <li key={j} className="flex gap-3.5 text-[16px] text-muted text-pretty">
-                  <span className="flex-none font-mono font-bold text-accent" aria-hidden="true">
-                    /
-                  </span>
-                  <span>{bullet}</span>
-                </li>
-              ))}
-            </ul>
-            <TagList tags={role.tags} tagClassName="border-line2" />
-          </div>
-        </div>
-      ))}
+        return (
+          <article
+            key={role.company}
+            data-reveal={String(i)}
+            data-lift="1"
+            className={cn(
+              RAIL_GRID,
+              'mb-[clamp(20px,2.4vw,28px)] rounded-[3px] border border-line bg-surface2 p-[clamp(26px,3.2vw,44px)] transition-[border-color,transform,box-shadow] duration-300 last:mb-0'
+            )}
+          >
+            <div className="space-y-2 nav:border-r nav:border-line nav:pr-[clamp(20px,2.5vw,32px)]">
+              <div className="font-mono text-[12px] font-bold tracking-[0.08em] text-accent">
+                {role.dates}
+              </div>
+              <div className="font-mono text-[11.5px] tracking-[0.06em] text-muted uppercase">
+                {roleTitle}
+              </div>
+              <div className="font-mono text-[11.5px] text-faint">{location}</div>
+              <TagList tags={role.tags} className="mt-6" />
+            </div>
+
+            <div>
+              <h3 className={CARD_TITLE}>{role.company}</h3>
+              <p className="mb-[22px] font-mono text-[11.5px] text-muted">{subLine}</p>
+
+              <p
+                className={`mb-[22px] max-w-col text-[clamp(16px,1.5vw,18.5px)] text-text2 text-pretty ${BOLD_IN_PROSE}`}
+              >
+                {role.summary}
+              </p>
+
+              {/* The marker is a real element, not ::before — generated content
+                  gets announced as "slash" on every bullet. */}
+              <ul className={cn(CARD_BULLETS, BOLD_IN_PROSE)}>
+                {role.bullets.map((bullet, j) => (
+                  <li key={j} className={BULLET_ROW}>
+                    <span className={BULLET_MARK} aria-hidden="true">
+                      /
+                    </span>
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        );
+      })}
     </Section>
   );
 }
