@@ -98,8 +98,6 @@ export interface RailRow {
   label: string;
   value: string;
   sub?: string;
-  /** Focus row caps its measure so it wraps with the others. */
-  narrow?: boolean;
 }
 
 export interface ToolkitRow {

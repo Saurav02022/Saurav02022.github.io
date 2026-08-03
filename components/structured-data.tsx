@@ -47,6 +47,11 @@ export function StructuredData() {
       },
       {
         "@type": "EducationalOrganization",
+        name: "Masai School",
+        description: "Full Stack Web Development, 2022–2023",
+      },
+      {
+        "@type": "EducationalOrganization",
         name: "Munger University",
         description: "B.Sc. Mathematics (Honours)",
       },

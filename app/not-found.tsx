@@ -22,7 +22,7 @@ export default function NotFound() {
       <h1 className="max-w-[15ch] animate-rise font-display text-[clamp(40px,6.4vw,86px)] leading-[0.95] font-extrabold tracking-[-0.035em] text-balance [animation-delay:0.12s]">
         Nothing here.
       </h1>
-      <p className="mt-[clamp(22px,2.6vw,30px)] max-w-[50ch] animate-rise text-[clamp(16px,1.5vw,19px)] leading-[1.55] text-ink2 text-pretty [animation-delay:0.22s]">
+      <p className="mt-[clamp(22px,2.6vw,30px)] max-w-[50ch] animate-rise text-[clamp(16px,1.5vw,19px)] leading-[1.55] text-text2 text-pretty [animation-delay:0.22s]">
         This address doesn&apos;t resolve — the portfolio is a single page, and
         everything lives on it.
       </p>
