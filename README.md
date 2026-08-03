@@ -1,58 +1,60 @@
 # Saurav Kumar — Portfolio
 
-Single-page, light, typography-led. Next.js (App Router) + TypeScript + Tailwind v4, statically exported and deployed on GitHub Pages.
+Personal portfolio site: work history, projects, and open-source contributions.
 
-**Live:** [saurav02022.github.io](https://saurav02022.github.io)
-(saurav02022-portfolio.vercel.app redirects here.)
+**Live:** https://saurav02022.github.io
+(https://saurav02022-portfolio.vercel.app redirects here.)
 
-## Stack
+## Tech Stack
 
-Next.js 16 (App Router, static export) · React 19 · TypeScript · Tailwind CSS v4 · `next/font/google` (Syne, Instrument Sans, Space Mono) · GitHub Pages, built by GitHub Actions on every push to `main` (`.github/workflows/deploy-pages.yml`)
+- [Next.js 16](https://nextjs.org/) (App Router, static export)
+- [React 19](https://react.dev/) + TypeScript
+- [Tailwind CSS v4](https://tailwindcss.com/)
+- `next/font/google` — Syne, Instrument Sans, Space Mono
 
-## Where things live
+## Project Structure
 
 ```
-lib/portfolio-data.tsx   every string on the site — cover, work, experience, about,
-                         toolkit, open source, contact, socials. Typed by lib/types.ts.
-                         Components only render it; copy changes never touch a component.
-lib/styles.ts            the two shared layout primitives (page measure, button variants)
-lib/brand.ts             design tokens as plain values, for the build-time image routes
-app/globals.css          the design system: one @theme block → Tailwind utilities + CSS vars.
-                         There is no tailwind.config — v4 reads the CSS.
-components/sections/     one component per section, each rendering its slice of the data
-app/opengraph-image.tsx  OG / Twitter / favicon routes, rendered at build
-  twitter-image.tsx      from the tokens in lib/brand.ts
-  icon.tsx
-app/llms.txt/route.ts    the same content as plain text, for models that read that
-design.md                the visual system and the rules it holds itself to
+lib/portfolio-data.tsx   All site content — cover, work, experience, about,
+                         toolkit, open source, contact, socials.
+                         Typed by lib/types.ts.
+lib/styles.ts            Shared layout primitives (page measure, button variants)
+lib/brand.ts             Design tokens for the build-time image routes
+app/globals.css          Design system — one @theme block (Tailwind v4 has no
+                         tailwind.config; it reads the CSS directly)
+components/sections/     One component per page section
+app/opengraph-image.tsx  OG image, Twitter card, and favicons, generated at build
+app/icon.tsx
+app/twitter-image.tsx
+app/llms.txt/route.ts    Site content as plain text, for LLM crawlers
+design.md                Design system reference
 ```
 
-If you only read two files, read `lib/portfolio-data.tsx` (all the content, in one place) and `app/globals.css` (the whole design system in one `@theme` block).
-
-## Details worth knowing
-
-A few decisions here were less obvious than they look:
-
-- **The image routes can't read CSS variables.** Satori renders the OG card and favicons at build time and has no access to `@theme`, so `lib/brand.ts` mirrors those tokens as plain values and the fonts are committed under `assets/fonts/` — the build never reaches for the network. The two have to be kept in step by hand; that's the trade for a share card that can't drift from the site.
-- **Font stacks are declared literally, not via `next/font`'s `--font-*` variables.** Those expand to `"Syne", "Syne Fallback"`, and the glyphs this design leans on (`→ ↗ ✳`) sit outside the Latin subset — they'd resolve to a proportional metric-fallback instead of the real face.
-- **Reduced motion can't leave anything invisible.** The scroll-reveal observer checks `prefers-reduced-motion` and returns *before* it hides anything, rather than hiding first and animating back — so a reader with motion reduced gets the content, not an empty page.
-- **The mobile menu is a native `<dialog>`** opened with `showModal()`, so the focus trap, Esc-to-close, focus restore, and inert background come from the platform instead of hand-rolled JS.
-- **`--color-faint` is pinned** to the lightest value that still clears WCAG AA (4.8:1 on the page ground) — it carries 11px metadata, so it can't go lighter.
-- **Every route prerenders static.** Nothing on this site needs a server at request time, so `next build` emits the page, both image routes, `robots.txt`, `sitemap.xml` and `llms.txt` as static files. If a route ever shows up as dynamic in the build output, something reached for a request-time API by accident.
-- **There's an `llms.txt`.** [app/llms.txt/route.ts](app/llms.txt/route.ts) renders the same `lib/portfolio-data.tsx` content as plain text, for the models that read that instead of the page — generated from the data rather than written twice, so the two can't disagree.
-- **No `BreadcrumbList` in the JSON-LD.** Google expects breadcrumb markup to describe a visible trail; this is one page with no breadcrumbs on it. The structured data is Person, WebSite, and one `SoftwareSourceCode` per project ([components/structured-data.tsx](components/structured-data.tsx)).
-
-## Run it
+## Getting Started
 
 ```bash
 npm install
 npm run dev     # http://localhost:3000
-npm run build
+npm run build   # static export to out/
 npm run lint
 ```
 
-Canonical URL comes from `NEXT_PUBLIC_SITE_URL` ([lib/site-config.ts](lib/site-config.ts)); `robots.txt` and `sitemap.xml` are generated by [app/robots.ts](app/robots.ts) and [app/sitemap.ts](app/sitemap.ts). `sitemap.ts` carries `lastModified` by hand — bump it on real content changes, not every build. To serve the résumé locally, drop `Saurav-Kumar-Resume.pdf` into `public/` and point `RESUME_URL` at it.
+The canonical site URL is set via `NEXT_PUBLIC_SITE_URL` ([lib/site-config.ts](lib/site-config.ts)), used to generate `robots.txt`, `sitemap.xml`, and structured data. To serve a résumé PDF locally, place it in `public/` and point `RESUME_URL` at it.
 
-## Use
+## Deployment
 
-No licence file yet. The code is here to read and learn from — but the writing, the case studies, and the visual design are mine, so please don't lift them wholesale.
+The site is a static export (`output: 'export'` in `next.config.ts`) — no server-rendered routes, no API routes. [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml) builds and publishes it to GitHub Pages on every push to `main`.
+
+`saurav02022-portfolio.vercel.app` is kept alive as a permanent (308) redirect to the GitHub Pages URL, configured in [`vercel.json`](vercel.json).
+
+## Implementation Notes
+
+- **OG image and favicons run at build time**, via [`next/og`](https://nextjs.org/docs/app/api-reference/functions/image-response) — they can't read CSS variables, so `lib/brand.ts` mirrors the design tokens as plain values, and fonts are committed under `assets/fonts/` so the build never reaches the network.
+- **Fonts are declared by literal family name**, not `next/font`'s `--font-*` variables — those variables fall back to a metric-only face for glyphs outside the Latin subset (`→ ↗ ✳`), which this design uses.
+- **The mobile menu is a native `<dialog>`** (`showModal()`) — focus trap, Esc-to-close, and inert background come from the platform.
+- **`llms.txt`** ([app/llms.txt/route.ts](app/llms.txt/route.ts)) renders the same content as `lib/portfolio-data.tsx`, generated rather than duplicated by hand.
+- **Structured data** covers `Person`, `WebSite`, and one `SoftwareSourceCode` per project ([components/structured-data.tsx](components/structured-data.tsx)); no `BreadcrumbList`, since there are no breadcrumbs on a single-page site.
+
+## License
+
+No license file yet. Source is public for reference; the content, copy, and visual design are not licensed for reuse.
