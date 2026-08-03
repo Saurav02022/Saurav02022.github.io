@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
+import { Background } from '@/components/Background';
 import { Reveal } from '@/components/Reveal';
+import { Tilt } from '@/components/Tilt';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Cover } from '@/components/sections/Cover';
@@ -20,16 +22,12 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <a
-        className="absolute -top-15 left-3 z-300 bg-ink px-4 py-2.75 font-mono text-[13px] text-bg transition-[top] duration-200 focus:top-3"
-        href="#main"
-      >
-        Skip to content
-      </a>
+      {/* Fixed, behind everything. The skip link lives in Navbar. */}
+      <Background />
       <Navbar />
       {/* tabIndex: the skip link has to be able to land focus here, otherwise
           it only scrolls and the next Tab returns to the nav. */}
-      <main id="main" tabIndex={-1} className="focus:outline-none">
+      <main id="main" tabIndex={-1} className="relative z-1 focus:outline-none">
         <Cover />
         <Marquee />
         <Experience />
@@ -41,6 +39,7 @@ export default function Home() {
       </main>
       <Footer />
       <Reveal />
+      <Tilt />
     </>
   );
 }

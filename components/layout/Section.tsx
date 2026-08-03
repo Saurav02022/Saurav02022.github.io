@@ -3,21 +3,24 @@ import { WRAP } from '@/lib/styles';
 import { cn } from '@/lib/utils';
 
 /**
- * A numbered page section: the design's fluid vertical rhythm, an anchor offset
- * that clears the fixed nav, and the vertical rail label wide viewports show.
+ * A numbered page section: the design's fluid vertical rhythm and an anchor
+ * offset that clears the fixed nav.
+ *
+ * `pane` is the alternating wash the design lays over the fixed WebGL canvas —
+ * A (opaque-ish) and B (barely there) trade off down the page, which is what
+ * makes the scene read through some bands and not others.
  */
 export function Section({
   id,
   labelledBy,
-  rail,
+  pane,
   className,
   children,
 }: {
   id: string;
   /** id of the <h2> this section is titled by. */
   labelledBy: string;
-  /** Vertical marginalia — decorative, and dropped below the nav breakpoint. */
-  rail?: string;
+  pane: 'a' | 'b';
   className?: string;
   children: ReactNode;
 }) {
@@ -25,18 +28,12 @@ export function Section({
     <section
       id={id}
       aria-labelledby={labelledBy}
-      // relative: the containing block for the rail label, which otherwise
-      // positions against the viewport and stacks on the other sections'.
-      className={cn('relative scroll-mt-19 py-sec', className)}
-    >
-      {rail && (
-        <span
-          aria-hidden="true"
-          className="absolute top-[clamp(90px,11vw,150px)] left-3.5 hidden rotate-180 font-mono text-[11px] tracking-[0.3em] text-faint uppercase [writing-mode:vertical-rl] nav:block"
-        >
-          {rail}
-        </span>
+      className={cn(
+        'scroll-mt-19 py-sec',
+        pane === 'a' ? 'bg-pane-a' : 'bg-pane-b',
+        className
       )}
+    >
       <div className={WRAP}>{children}</div>
     </section>
   );
