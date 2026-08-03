@@ -1,12 +1,13 @@
 # Saurav Kumar — Portfolio
 
-Single-page, light, typography-led. Next.js (App Router) + TypeScript + Tailwind v4, deployed on Vercel.
+Single-page, light, typography-led. Next.js (App Router) + TypeScript + Tailwind v4, statically exported and deployed on GitHub Pages.
 
-**Live:** [saurav02022-portfolio.vercel.app](https://saurav02022-portfolio.vercel.app)
+**Live:** [saurav02022.github.io](https://saurav02022.github.io)
+(saurav02022-portfolio.vercel.app redirects here.)
 
 ## Stack
 
-Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4 · `next/font/google` (Syne, Instrument Sans, Space Mono) · Vercel
+Next.js 16 (App Router, static export) · React 19 · TypeScript · Tailwind CSS v4 · `next/font/google` (Syne, Instrument Sans, Space Mono) · GitHub Pages, built by GitHub Actions on every push to `main` (`.github/workflows/deploy-pages.yml`)
 
 ## Where things live
 

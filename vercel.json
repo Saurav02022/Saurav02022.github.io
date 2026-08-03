@@ -1,8 +1,12 @@
 {
-  "buildCommand": "next build",
-  "devCommand": "next dev",
-  "installCommand": "npm install",
-  "framework": "nextjs",
-  "outputDirectory": ".next"
+  "framework": null,
+  "buildCommand": "",
+  "installCommand": "",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "destination": "https://saurav02022.github.io/:path*",
+      "permanent": true
+    }
+  ]
 }
-
