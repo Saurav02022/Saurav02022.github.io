@@ -4,6 +4,11 @@
   "installCommand": "",
   "redirects": [
     {
+      "source": "/",
+      "destination": "https://saurav02022.github.io/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "destination": "https://saurav02022.github.io/:path*",
       "permanent": true
