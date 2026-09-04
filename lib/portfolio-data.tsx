@@ -19,7 +19,7 @@ export const NAME = 'Saurav Kumar';
  * actual employer title, and a self-assigned level is the fastest way to make
  * a reviewer re-audit everything else. The page argues the level; it never
  * claims it. */
-export const ROLE = 'Full-Stack + AI Engineer';
+export const ROLE = 'Applied AI + Full-Stack Engineer';
 export const EMAIL = 'sk729584@gmail.com';
 export const LOCATION = 'Mumbai, IN';
 export const YEAR = '2026';
@@ -56,27 +56,29 @@ export const NAV_ITEMS: NavItem[] = [
 ];
 
 export const cover = {
-  eyebrow: 'Software engineer, 3+ years in production',
+  eyebrow: 'Applied AI engineer, 3+ years in production',
   title: (
     <>
-      I design the database, build the backend and the frontend, and <em>put it live</em>{' '}
-      myself.
+      I run LLM systems in production, and I build <em>the whole product</em>{' '}
+      around them.
     </>
   ),
   support:
-    'Right now that is EdTech. My team builds ten products, used by teachers, students, principals and school admins across 117 schools. Four of them are entirely mine — frontend, backend, the database under them, the deploy, and whatever breaks in production afterward. I gather the requirements for those four myself and build from there.',
+    'Right now that is EdTech. The analyser I built takes the first pass on around 5,000 student submissions a month, and I measure it against teacher judgement instead of assuming it is right — it agrees 7 times in 10 today, and no prompt, model or model-setting change ships until it clears that number. My team builds ten products across 117 schools, and four of them are entirely mine — frontend, backend, the database under them, the deploy, and whatever breaks in production afterward.',
   /* The four planes of the background scene, in order. Hovering one lights the
    * matching layer in the 3D stack — the labels and the scene share this list,
    * so a rename here moves both. */
   layersLabel: 'Frontend to deploy — hover to trace a layer',
   layers: ['Frontend', 'Backend', 'Database', 'Deploy'],
   stats: [
-    { label: 'I OWN', value: 'Frontend, backend, database and deploy — 4 of 10 apps' },
+    { label: 'I OWN', value: 'The LLM layer and the full stack under it — 4 of 10 apps' },
     { label: 'BASED', value: 'Mumbai, open to relocating' },
   ],
 };
 
 export const MARQUEE_ITEMS = [
+  '7 in 10 agreement with teacher judgement',
+  'No model change ships until it clears that number',
   '4 apps, mine end to end',
   'An Android app, start to finish',
   '8.5 seconds down to 2.5',
@@ -444,10 +446,14 @@ export const experience: ExperienceRole[] = [
       <>
         I built the portfolio portal end to end, web and Android.{' '}
         <b>300+ students</b> keep a public website of their best work on it, adding up to{' '}
-        <b>5,000+ submissions a month</b>, and an AI assessor reads the finished portfolio
-        and reports on how their skills are developing, quoting their own work as evidence.
-        A submission that fails retries on its own, and a job that runs twice saves the
-        result once, not twice.
+        <b>5,000+ submissions a month</b>, and an AI assessor takes the first pass on every
+        one — approve, reject, or a comment — so a teacher checks the disagreements instead
+        of reading everything. I measure that assessor against teacher judgement rather than
+        assuming it is right: it agrees <b>7 times in 10</b> today, and no prompt, model or
+        model-setting change ships until it clears that number. Repeat scoring is cached on a
+        hash of the scores, the prompt version and the model, so a result is only recomputed
+        when one of those three actually changes. A submission that fails retries on its own,
+        and a job that runs twice saves the result once, not twice.
       </>,
       <>
         Two pieces of Sakhee are mine. One is the school calendar —
@@ -628,13 +634,13 @@ export const about = {
   statement:
     'Losing a teacher’s class recording is the worst thing this software can do.',
   p1: 'I start with what breaks. The failures I trust least are the quiet ones — nothing shows an error, nobody files a report, because nobody knows anything went wrong. A file disappears. Or a job runs twice and quietly pays twice, and the only sign is a number that does not add up three weeks later. In two of the products above, I built it so the same message arriving twice cannot do the work twice, instead of just writing a test and hoping.',
-  p2: 'The decisions I am proud of are mostly the ones where I gave something up. A feature cut because the version that would have held was out of budget. An extra layer kept because a fast test run is worth more than a tidy one. What I want next is a product company, in India or abroad, where I own a feature all the way down — the screen, the API, and the database under it — for real users on bad connections. I came into engineering from a mathematics degree and learned full stack development at Masai. The weekend MCA at IIIT Ranchi is me going back for the computer science fundamentals, the parts I picked up on the job and want to know properly.',
+  p2: 'The decisions I am proud of are mostly the ones where I gave something up. A feature cut because the version that would have held was out of budget. An extra layer kept because a fast test run is worth more than a tidy one. What I want next is a product company, in India or abroad, where I own an AI feature all the way down — the model call, the evaluation that gates it, the API, and the database under it — for real users on bad connections. I came into engineering from a mathematics degree and learned full stack development at Masai. The weekend MCA at IIIT Ranchi is me going back for the computer science fundamentals, the parts I picked up on the job and want to know properly.',
   rail: [
     { label: 'Based in', value: 'Mumbai, India' },
     {
       label: 'Focus',
-      value: 'Full stack · AI · System design · DSA',
-      sub: 'TypeScript and Python · Next.js, FastAPI, PostgreSQL',
+      value: 'Applied AI · Full stack · System design · DSA',
+      sub: 'Python and TypeScript · FastAPI, Next.js, PostgreSQL',
     },
     /* Sits directly under Focus on purpose: Focus names DSA, this row is the
      * number behind it. Same reason Open source follows — it backs the rest. */
@@ -711,12 +717,12 @@ export const toolkit: ToolkitRow[] = [
   },
 ];
 
-export const LANGUAGES = 'TypeScript · Python · JavaScript · SQL';
+export const LANGUAGES = 'Python · TypeScript · JavaScript · SQL';
 
 export const contact = {
   title: 'Tell me what you are building',
   support:
-    'I am looking for a Software Engineer II or full stack role where I can build reliable products and work on AI-backed workflows. I am happy to relocate. Email is the fastest way to reach me, and I reply to everything that lands there.',
+    'I am looking for an AI Engineer, Applied AI Engineer, Forward Deployed Engineer or Software Engineer II role where I run LLM systems in production and own the product around them. I am happy to relocate. Email is the fastest way to reach me, and I reply to everything that lands there.',
 };
 
 export const COLOPHON = 'Set in Syne, Instrument Sans & Space Mono.';
