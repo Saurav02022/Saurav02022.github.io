@@ -17,7 +17,7 @@ export function StructuredData() {
     name: NAME,
     jobTitle: ROLE,
     description:
-      "Full-stack + AI engineer with 3+ years in production — EdTech across 117 schools, a 10,000+ creator video platform, and schema-locked LLM features.",
+      "Applied AI + full-stack engineer with 3+ years in production — LLM systems measured against human judgement, EdTech across 117 schools, and a 10,000+ creator video platform.",
     url: SITE_URL,
     image: `${SITE_URL}/opengraph-image`,
     email: EMAIL,
@@ -57,6 +57,10 @@ export function StructuredData() {
       },
     ],
     knowsAbout: [
+      "AI Engineering",
+      "LLM Integration",
+      "LLM Evaluation",
+      "Prompt Engineering",
       "TypeScript",
       "JavaScript",
       "Python",
@@ -70,8 +74,6 @@ export function StructuredData() {
       "Docker",
       "Google Cloud Run",
       "Playwright",
-      "AI Engineering",
-      "LLM Integration",
       "Full-Stack Development",
       "Offline-First Applications",
       "Open Source Mentoring",
@@ -96,7 +98,7 @@ export function StructuredData() {
     alternateName: "Saurav Kumar Portfolio",
     url: SITE_URL,
     description:
-      "Portfolio of Saurav Kumar — full-stack + AI engineer. Production EdTech across 117 schools, a 10,000+ creator video platform, and schema-locked LLM features.",
+      "Portfolio of Saurav Kumar — applied AI + full-stack engineer. Production LLM systems measured at 7-in-10 agreement with teachers, EdTech across 117 schools.",
     author: {
       "@type": "Person",
       name: NAME,
